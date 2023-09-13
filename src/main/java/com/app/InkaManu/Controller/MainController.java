@@ -13,4 +13,19 @@ public class MainController {
         return "index";
     }
 
+    @GetMapping({"/prueba22" })
+	public String prueba22(Model model) {		
+		return "index";
+	}
+	
+	@GetMapping({"/prueba23" })
+	public String prueba23(Model model) {		
+		return "detalle_producto";
+	}
+	
+	@GetMapping({"/prueba24" })
+	public String prueba24(Model model) {		
+		return "carrito";
+	}
+
 }

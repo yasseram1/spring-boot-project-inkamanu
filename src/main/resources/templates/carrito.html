@@ -4,11 +4,8 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" th:href="@{/ImagenesPrueba/sweet_stout.jpeg}"/> <!--  PARA CAMBIAR EL ICONO DE LA EMPRESA -->
-
-
-<title>INDEX</title>
-
+<link rel="icon" th:href="@{/ImagenesPrueba/porter.jpeg}"/> <!--  PARA CAMBIAR EL ICONO DE LA EMPRESA -->
+<title>CARRITO</title>
 	<link rel="stylesheet"
 	href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
 
@@ -54,7 +51,8 @@
 	section {
 		padding: 2rem 6%;
 	}
-		
+	
+	/* ESTO LO PUSE ES EL CSS DE HEADING */
 	.heading {
 		text-align: center;
 		padding-bottom: 2rem;
@@ -75,7 +73,7 @@
 		width: 100%;
 		z-index: -1;
 		background: var(--yellow);
-		clip-path: polygon(0 90%, 100% 80%, 100% 100%, 0% 100%);  /* CON ESTO PONGO LA LINEA AMARILLA ABAJO DE LA PALABRA Vehicles de color amarillo */ 
+		clip-path: polygon(0 90%, 100% 80%, 100% 100%, 0% 100%);  /* de color amarillo */ 
 	}
 	
 	/* hasta aca arriba */
@@ -143,7 +141,7 @@
 		cursor: pointer;
 		display: none;
 	}
-	
+
 	.header.active {
 		box-shadow: var(--box-shadow);
 		padding: 2rem 9%;
@@ -257,8 +255,7 @@
 		text-decoration: underline;
 	}
 	
-	
-	/* ESTO DE ACA ABAJO  */
+	/* ESTO DE ACA ABAJO */
 	.login-form-container {
 		position: fixed;
 		top: -105%; left: 0;
@@ -271,10 +268,8 @@
 		justify-content: center;
 		opacity: 0;
 	}
-	
-	
-	
-	/* ------- ESTO ES PARA ACTIVAR Y QUE FUNCIONE EL BOTON DEL LOGIN AL DARLE CLICK Y SE MUESTRE EL FORMULARIO DEL LOGIN  */
+
+	/* ------- ESTO ES PARA ACTIVAR Y QUE FUNCIONE EL BOTON DEL LOGIN AL DARLE CLICK Y SE MUESTRE EL FORMULARIO DEL LOGIN */
 	.login-form-container.active {
 		top: 0;
 		opacity: 1; /* SI ES 1 SE MUESTRA EL FORMULARIO Y SI ES CERO NO SE MUESTRA  */
@@ -344,17 +339,6 @@
 		cursor: pointer;
 	}
 	
-	.home {
-		padding-top: 10rem;
-		text-align: center;
-	}
-	
-	.home h1 {
-		font-size: 4vw;
-		text-transform: uppercase;
-		color: var(--black);
-	}
-	
 	/* PUESTO HOY 13/09/2023 */
 	/* Estilo para el carrusel */
 	/* Imagenes del carrusel */
@@ -385,8 +369,7 @@
 	    overflow: hidden;
 	    position: absolute;
 	    box-shadow: 0px 0px 20px 0px black;
-	    transition: all 300ms;
-	    
+	    transition: all 300ms; 
 	}
 	
 	.content-carrousel figure:hover{
@@ -424,8 +407,8 @@
 	}
 	
 	/* HASTA AQUI */
-	
-	/* CSS DE ICONS EN EL MINUTO 36:40 */
+
+	/* CSS DE ICONS EN EL MINUTO */
 	.icons-container {
 		padding-top: 5rem;
 		padding-bottom: 5rem;
@@ -481,13 +464,13 @@
 	.icons-container .icons:hover .content p {
 		color: #eee;
 	} 
-	
-	/* codigo  */
+
+	/* codigo */
 	.swiper-pagination-bullet-active {
 		background: var(--yellow);
 	}
 	
-	
+	/* codigo hasta aca arriba */
 	#mision {
 		padding: 1rem;
 	}
@@ -539,8 +522,7 @@
 	}
 	/* codigo hasta aca arriba */
 	
-	/* contact section SU CODIGO DE CSS  */
-	
+	/* contact section  */
 	.contact .row {
 		display: flex;
 		flex-wrap: wrap;
@@ -588,7 +570,6 @@
 	}
 	
 	/* footer section  */
-	
 	.footer {
 		background: var(--light-yellow);
 	}
@@ -629,8 +610,8 @@
 		margin-top: 2rem;
 		font-size: 2rem;
 	}
-	
-	/*------------------ media queries ---------------------- */
+
+	/*------------------ media queries del video, hace responsivo la pagina y que se pueda adaptar a cualquier tamaño de la pagina ---------------------- */
 	
 	@media (max-width:991px) {
 		html {
@@ -640,21 +621,18 @@
 		.header {
 			padding: 2rem;
 		}
-		
-		
+				
 		.header.active {
 			padding: 2rem;
 		}
 		
-	
+		/* SECTION AGREGADO  */
 		section {
 			padding: 2rem;
 		}
-		
 	}
-	
+
 	@media (max-width:768px) {
-	
 		#menu-btn {
 			display: block;
 		}
@@ -696,7 +674,9 @@
 		html {
 			font-size: 50%;
 		}
-
+		
+		/* este codigo lo puse */
+		
 		.heading {
 			font-size: 3rem;
 		}
@@ -707,6 +687,140 @@
 		
 		/* ese codigo es hasta aca arriba */
 	}
+	
+	/*------- media query for less than 600 screen size -------  */
+	
+	@media only screen and (max-width: 600px) {
+		.row {
+			text-align: center;
+		}
+		
+		.col-2, .col-3, .col-4 {
+			flex-basis: 100%;
+		}
+	
+		/*------- ESTO LE PUSE ------- */
+		
+		.single-product .row {
+			text-align: left;
+		}
+		
+		.single-product .col-2 {
+			padding: 20px 0;
+		}
+		
+		.single-product h1 {
+			font-size: 26px;
+			line-height: 32px;
+		}
+		
+		/*------- ESTO LE PUSE ------- */
+	}
+	
+
+	/*------- cart item  --------*/
+	
+	.cart-page {
+		margin: 80px auto;
+	}
+	
+	
+	table {
+		width: 100%;
+		border-collapse: collapse;
+	}
+	
+	.cart-info {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	
+	th {
+		text-align: left;
+		padding: 5px;
+		color: #fff;
+		background: var(--my-blue);
+		font-weight: normal;
+	}
+	
+	td {
+		padding: 10px 5px;
+	}
+	
+	td input {
+		width: 60px;
+		height: 30px;
+		padding: 5px;
+		border: 1px solid var(--my-blue);
+	}
+	
+	td a {
+		color: var(--my-blue);
+		font-size: 12px;
+	}
+	
+	td img {
+		width: 80px;
+		height: 80px;
+		margin-right: 10px;
+	}
+	
+	.total-price {
+		display: flex;
+		justify-content: flex-end;
+	}
+	
+	.total-price table {
+		border-top: 3px solid var(--my-blue);
+		width: 100%;
+		max-width: 400px; /* ESTO SIRVE PARA PONER LA TABLA A LA MISMA ALTURA DEL QUANTITY */
+	}
+	
+	td:last-child {
+		text-align: right;
+	}
+	
+	th:last-child {
+		text-align: right;
+	}
+	
+	.btnComprar {
+		display: inline-block;
+		float: right; /* Alinea a la derecha */
+		margin-top: 1rem;
+		border-radius: .5rem;
+		background: var(--light-yellow);
+		color: var(--black);
+		font-weight: 500;
+		font-size: 1.7rem;
+		cursor: pointer;
+		padding: .8rem 3rem;
+	}
+	
+	.btnComprar:hover {
+		background: var(--yellow);
+	}
+	
+	.btnSeguirComprando {
+		display: inline-block;
+		float: right; /* Alinea a la derecha */
+		margin-top: 1rem;
+		border-radius: .5rem;
+		background: var(--light-my-blue);
+		color: var(--black);
+		font-weight: 500;
+		font-size: 1.7rem;
+		cursor: pointer;
+		padding: .8rem 3rem;
+		margin: 1rem;
+	}
+	
+	.btnSeguirComprando:hover {
+		background: var(--my-blue);
+	}
+	
+	/*---------------------- cambios ---------------------- */
+	
 	</style>
 </head>
 <body>
@@ -716,7 +830,7 @@
 		<div id="menu-btn" class="fas fa-bars"></div>
 		<a href="#" class="logo"> <span>Inka</span>Manu </a>
 		<nav class="navbar">
-			<a href="#home">Principal</a>
+			<a th:href="@{/prueba22}">Principal</a>
 			<a href="#featured">Productos</a>
 			<a href="#descripcion">Descripción</a>
 			<a href="#mision">Misión y Visión</a>
@@ -731,7 +845,7 @@
 	</header>
 	<!---------------------------- header section ends ---------------------------->
 
-	<!---------------------------- login form ---------------------------->
+	<!---------------------------- login form  ---------------------------->
 	<div class="login-form-container">
 		<span class="fas fa-times" id="close-login-form"></span>
 		<form action="">
@@ -817,176 +931,105 @@
 			<p>¿Ya eres miembro? <a id="login-link" href="#">Inicia tu sesión</a></p>
 		</form>
 	</div>
-	<!---------------------------- register form ---------------------------->
-	
-	<!---------------------------- home section stars ---------------------------->
-	<section class="home" id="home">
-	   <h1>Bienvenido a InkaManu</h1>
-	   <div class="content-all">
-        	<div class="content-carrousel">
-				<figure><img src="ImagenesPrueba/sweet_stout.jpeg"></figure>
-				<figure><img src="ImagenesPrueba/sweet_stout.jpeg"></figure>
-	            <figure><img src="ImagenesPrueba/sweet_stout.jpeg"></figure>
-	            <figure><img src="ImagenesPrueba/sweet_stout.jpeg"></figure>
-	            <figure><img src="ImagenesPrueba/sweet_stout.jpeg"></figure>
-				<figure><img src="ImagenesPrueba/sweet_stout.jpeg"></figure>
-	            <figure><img src="ImagenesPrueba/sweet_stout.jpeg"></figure>
-	            <figure><img src="ImagenesPrueba/porter.jpeg"></figure>
-	        </div>
-    	</div>
-	</section>
-	<!---------------------------- home section ends ---------------------------->
-	
-	<!---------------------------- featured section stars ---------------------------->
-	<section class="featured" id="featured">
-		<h1 class="heading"> <span>Productos</span> de InkaManu </h1>
-		<div class="swiper featured-slider">
-			<div class="swiper-wrapper">
+	<!---------------------------- register form  ---------------------------->
+
+	<!---------------------------- cart items details  ---------------------------->
+	<section class="carrito" id="carrito">
+		<div class="small-container cart-page">
+			<table>
+				<tr>
+					<th>Productos</th>
+					<th>Cantidad</th>
+					<th>Subtotal</th>
+				</tr>
 				
-				<div class="swiper-slide box">
-					<img src="ImagenesPrueba/porter.jpeg" alt="">
-					<h3>Producto 1</h3>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<div class="price">S/. 15,00/-</div>
-					<a th:href="@{/prueba23}" class="btn">Ver Producto</a>
-				</div>
+				<tr>
+					<td>
+						<div class="cart-info">
+							<img src="ImagenesPrueba/porter.jpeg">    
+							<div>
+								<p>SWEET STOUT (NEGRA)</p>
+								<small>Precio: S/. 15.00</small>
+								<br>
+								<a href="">Remove</a>
+							</div>
+						</div>
+					</td>
+					<td><input type="number" value="3"></td>
+					<td>S/. 45.00</td>
+				</tr>
 				
-				<div class="swiper-slide box">
-					<img src="ImagenesPrueba/sweet_stout.jpeg" alt="">
-					<h3>Producto 2</h3>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<div class="price">S/. 15,00/-</div>
-					<a th:href="@{/prueba23}" class="btn">Ver Producto</a>
-				</div>
+				<tr>
+					<td>
+						<div class="cart-info">
+							<img src="ImagenesPrueba/sweet_stout.jpeg">      
+							<div>
+								<p>SWEET STOUT (NEGRA)</p>
+								<small>Precio: S/. 15.00</small>
+								<br>
+								<a href="">Remove</a>
+							</div>
+						</div>
+					</td>
+					<td><input type="number" value="2"></td>
+					<td>S/. 30.00</td>
+				</tr>
 				
-				<div class="swiper-slide box">
-					<img src="ImagenesPrueba/porter.jpeg" alt="">
-					<h3>Producto 3</h3>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<div class="price">S/. 15,00/-</div>
-					<a th:href="@{/prueba23}" class="btn">Ver Producto</a>
-				</div>
+				<tr>
+					<td>
+						<div class="cart-info">
+							<img src="ImagenesPrueba/porter.jpeg">   
+							<div>
+								<p>SWEET STOUT (NEGRA)</p>
+								<small>Precio: S/. 15.00</small>
+								<br>
+								<a href="">Remove</a>
+							</div>
+						</div>
+					</td>
+					<td><input type="number" value="1"></td>
+					<td>S/. 15.00</td>
+				</tr>
+			
+			</table>
+			
+			<!---------------------------- TOTAL PRICE ---------------------------->
+			<div class="total-price">
+			
+				<table>
+					<tr>
+						<td>Subtotal</td>
+						<td>S/. 90.00</td>
+					</tr>
+					
+					<tr>
+						<td>Descuento</td>
+						<td>S/. 9.00</td>
+					</tr>
+					
+					<tr>
+						<td>Total</td>
+						<td>S/. 81.00</td>
+					</tr>
+				</table>
 				
-				<div class="swiper-slide box">
-					<img src="ImagenesPrueba/sweet_stout.jpeg" alt="">
-					<h3>Producto 4</h3>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<div class="price">S/. 15,00/-</div>
-					<a th:href="@{/prueba23}" class="btn">Ver Producto</a>
-				</div>
 			</div>
 			
-			<div class="swiper-pagination"></div>
-			
+			<input type="submit" value="Comprar" class="btnComprar">
+			<input type="submit" value="Seguir comprando" class="btnSeguirComprando">
 		</div>
 		
-	
 	</section>
-	
-	<!---------------------------- featured section ends ---------------------------->
-	
-	
-	<!---------------------------- descripcion section stars ---------------------------->
-	
-		<h1 class="heading" id="descripcion"> <span>Descripción de la empresa</span></h1>
-		
-		<section class="icons-container">
-			
-			<div class="icons">
-				<i class="fas fa-home"></i>
-				<div class="content">
-					<h3>C&L Team SAC</h3>
-					<p>Es una empresa peruana cervecera originaria del distrito Caraz del departamento de Ancash, fundada en el 2021 por el ingeniero Manuel Chincha. El junto a su enamorada y su padre, brindan cerveza de calidad con agradable sabor y responsable con en el medio ambiente. Además, continúa innovando sus productos para llegar a más personas y expandirse haciéndose conocido por la experiencia de su servicio y el sabor sus cervezas.</p>
-				</div>
-			</div>
-			
-		</section>
-	
-	<!---------------------------- descripcion section ends ---------------------------->
-	
-	<!---------------------------- mision y vision section stars---------------------------->
 
-		<h1 class="heading" id="mision"> <span>Misión y Visión</span></h1>
-		
-		<section class="icons-container">
-			
-			<div class="icons">
-				<i class="fas fa-home"></i>
-				<div class="content">
-					<h3>Misión</h3>
-					<p>Buscamos ser un producto consumido a nivel nacional por brindar una cerveza artesanal que mantenga los estándares de calidad y se distinga por su sabor, aroma y sobre todo por ser un producto eco-amigable para la contribución de la responsabilidad social. Deseamos posicionarnos como una cerveza preferencial para acompañar comidas y momentos placenteros</p>
-				</div>
-			</div>
-			
-			<div class="icons">
-				<i class="fas fa-home"></i>
-				<div class="content">
-					<h3>Visión</h3>
-					<p>La empresa tiene por objetivo ser la marca líder en el mercado nacional de la cerveza artesanal trabajando en la innovación de sabores y aromas para ofrecer a la cultura cervecera nuestros productos</p>
-				</div>
-			</div>
-		</section>
+	<!---------------------------- cart ends ---------------------------->
 
-	<!---------------------------- mision y vision section ends ---------------------------->
-	
 
-	<!---------------------------- contact section stars O  ---------------------------->
-	
-	<section class="contact" id="contact">
-		<h1 class="heading"> <span>Contáctanos</span></h1>
-	
-		<div class="row">
-			<iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.031292261987!2d-76.93455222707215!3d-12.041366688194957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c6a67667e425%3A0x937f2051f03452a1!2sReal%20Plaza%20Puruchuco!5e0!3m2!1ses!2spe!4v1690722522448!5m2!1ses!2spe" 
-			allowfullscreen="" loading="lazy"></iframe>
-			
-			<form action="">
-				<h3>Ponerse En Contacto</h3>
-				<input type="text" placeholder="Nombre" class="box">
-				<input type="email" placeholder="Norreo electronico" class="box">
-				<input type="number" placeholder="Número" class="box">
-				<textarea placeholder="Mensaje" class="box" rows="10" cols="30"></textarea>
-				<input type="submit" value="Enviar Mensaje" class="btn">
-			</form>
-			
-		</div>
-	
-	</section>
-	
-	<!---------------------------- contact section ends  ---------------------------->
-	
-	
-	<!---------------------------- footer section stars  ---------------------------->
-
+	<!---------------------------- footer section stars ---------------------------->
 	<section class="footer">
 		<div class="box-container">
-			
 			<div class="box">
 				<h3>Enlaces Rápidos</h3>
-				<a href="#home"> <i class="fas fa-arrow-right"></i> Principal </a>
+				<a th:href="@{/prueba22}"> <i class="fas fa-arrow-right"></i> Principal </a>
 				<a href="#featured"> <i class="fas fa-arrow-right"></i> Productos </a>
 				<a href="#descripcion"> <i class="fas fa-arrow-right"></i> Descripción </a>
 				<a href="#mision"> <i class="fas fa-arrow-right"></i> Misión y Visión </a>
@@ -1011,11 +1054,13 @@
 		<div class="credit"> @Copyright - Todos los derechos reservados! </div>
 	</section>
 
-	<!---------------------------- footer section ends  ---------------------------->
+	<!---------------------------- footer section ends ---------------------------->
 
-
+	<!-- script js link en el minuto 49:40 del video -->
 	<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
+	<!-- custom js file link -->
+	<!--------------------- js for  --------------------->
 	<script>
 		let menu = document.querySelector('#menu-btn');
 		let navbar = document.querySelector('.navbar');
@@ -1025,6 +1070,7 @@
 			navbar.classList.toggle('active');
 		}
 		
+		/* ESTO LO PUSE EN EL MINUTO 26:55 SIRVE ESTE CODIGO JUNTO CON EL CSS DE ACTIVE PARA MOSTRAR EL FORMULARIO DEL LOGIN AL HACER CLICK */
 		
 		document.querySelector('#login-btn').onclick = () => {
 			document.querySelector('.login-form-container').classList.toggle('active');
@@ -1042,6 +1088,7 @@
 		
 		/* hasta aqui */
 		
+		/* ESTO LO PUSE EN EL MINUTO 26:55 SIRVE ESTE CODIGO JUNTO CON EL CSS DE ACTIVE PARA MOSTRAR EL FORMULARIO DEL registro AL HACER CLICK */
 		
 		document.querySelector('#register-btn').onclick = () => {
 			document.querySelector('.register-form-container').classList.toggle('active');
@@ -1057,10 +1104,7 @@
     		document.querySelector('.login-form-container').classList.remove('active');
 		}
 		
-		/* hasta aqui */
-		
 		window.onscroll = () => {
-		
 			if( window.scrollY > 0 ) {
 				document.querySelector('.header').classList.add('active');
 			} else {
@@ -1070,49 +1114,14 @@
 			menu.classList.remove('fa-times');
 			navbar.classList.remove('active');
 		}
-		
 	
-		
 		window.onload = () => {
-		
 			if( window.scrollY > 0 ) {
 				document.querySelector('.header').classList.add('active');
 			} else {
 				document.querySelector('.header').classList.remove('active');
 			}
-
 		}
-
-		
-		var swiper = new Swiper(".featured-slider", {
-			slidesPerView: 1,
-			spaceBetween: 20,
-			loop: true,
-			grabCursor: true,
-			centeredSlides: true,
-			autoplay: {
-				delay: 1500,
-				disableOnInteraction: false,
-			},
-			pagination: {
-				el: ".swiper-pagination",
-				clickable: true,
-			},
-			breakpoints: {
-				0: {
-					slidesPerView: 1,
-				},
-				768: {
-					slidesPerView: 2,
-				},
-				991: {
-					slidesPerView: 3,
-				},
-			},
-		});
-		
-		
 	</script>
-
 </body>
 </html>
