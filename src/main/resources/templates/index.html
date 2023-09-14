@@ -5,10 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" th:href="@{/ImagenesPrueba/sweet_stout.jpeg}"/> <!--  PARA CAMBIAR EL ICONO DE LA EMPRESA -->
-
-
 <title>INDEX</title>
-
 	<link rel="stylesheet"
 	href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
 
@@ -16,9 +13,7 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 	
 	<!-- Styles -->
-
 	<style>
-	
 	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
 	
 	:root {
@@ -650,11 +645,9 @@
 		section {
 			padding: 2rem;
 		}
-		
 	}
 	
 	@media (max-width:768px) {
-	
 		#menu-btn {
 			display: block;
 		}
@@ -689,7 +682,6 @@
 			margin: 2rem;
 			font-size: 2rem;
 		}
-		
 	}
 	
 	@media (max-width:450px) {
@@ -710,7 +702,6 @@
 	</style>
 </head>
 <body>
-
 	<!---------------------------- header section stars ---------------------------->
 	<header class="header">
 		<div id="menu-btn" class="fas fa-bars"></div>
@@ -842,7 +833,6 @@
 		<h1 class="heading"> <span>Productos</span> de InkaManu </h1>
 		<div class="swiper featured-slider">
 			<div class="swiper-wrapper">
-				
 				<div class="swiper-slide box">
 					<img src="ImagenesPrueba/porter.jpeg" alt="">
 					<h3>Producto 1</h3>
@@ -901,21 +891,13 @@
 			</div>
 			
 			<div class="swiper-pagination"></div>
-			
 		</div>
-		
-	
 	</section>
-	
 	<!---------------------------- featured section ends ---------------------------->
 	
-	
 	<!---------------------------- descripcion section stars ---------------------------->
-	
 		<h1 class="heading" id="descripcion"> <span>Descripción de la empresa</span></h1>
-		
 		<section class="icons-container">
-			
 			<div class="icons">
 				<i class="fas fa-home"></i>
 				<div class="content">
@@ -923,17 +905,12 @@
 					<p>Es una empresa peruana cervecera originaria del distrito Caraz del departamento de Ancash, fundada en el 2021 por el ingeniero Manuel Chincha. El junto a su enamorada y su padre, brindan cerveza de calidad con agradable sabor y responsable con en el medio ambiente. Además, continúa innovando sus productos para llegar a más personas y expandirse haciéndose conocido por la experiencia de su servicio y el sabor sus cervezas.</p>
 				</div>
 			</div>
-			
 		</section>
-	
 	<!---------------------------- descripcion section ends ---------------------------->
 	
 	<!---------------------------- mision y vision section stars---------------------------->
-
 		<h1 class="heading" id="mision"> <span>Misión y Visión</span></h1>
-		
 		<section class="icons-container">
-			
 			<div class="icons">
 				<i class="fas fa-home"></i>
 				<div class="content">
@@ -950,15 +927,12 @@
 				</div>
 			</div>
 		</section>
-
 	<!---------------------------- mision y vision section ends ---------------------------->
 	
-
 	<!---------------------------- contact section stars O  ---------------------------->
 	
 	<section class="contact" id="contact">
 		<h1 class="heading"> <span>Contáctanos</span></h1>
-	
 		<div class="row">
 			<iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.031292261987!2d-76.93455222707215!3d-12.041366688194957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c6a67667e425%3A0x937f2051f03452a1!2sReal%20Plaza%20Puruchuco!5e0!3m2!1ses!2spe!4v1690722522448!5m2!1ses!2spe" 
 			allowfullscreen="" loading="lazy"></iframe>
@@ -966,24 +940,19 @@
 			<form action="">
 				<h3>Ponerse En Contacto</h3>
 				<input type="text" placeholder="Nombre" class="box">
-				<input type="email" placeholder="Norreo electronico" class="box">
+				<input type="email" placeholder="Correo electronico" class="box">
 				<input type="number" placeholder="Número" class="box">
 				<textarea placeholder="Mensaje" class="box" rows="10" cols="30"></textarea>
 				<input type="submit" value="Enviar Mensaje" class="btn">
 			</form>
-			
 		</div>
-	
 	</section>
-	
 	<!---------------------------- contact section ends  ---------------------------->
-	
-	
+
 	<!---------------------------- footer section stars  ---------------------------->
 
 	<section class="footer">
 		<div class="box-container">
-			
 			<div class="box">
 				<h3>Enlaces Rápidos</h3>
 				<a href="#home"> <i class="fas fa-arrow-right"></i> Principal </a>
@@ -1005,14 +974,11 @@
 				<a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
 				<a href="https://api.whatsapp.com/send?phone=XXXXXXXXXXX" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
 			</div> 
-			
 		</div>
-		
 		<div class="credit"> @Copyright - Todos los derechos reservados! </div>
 	</section>
 
 	<!---------------------------- footer section ends  ---------------------------->
-
 
 	<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
@@ -1024,7 +990,6 @@
 			menu.classList.toggle('fa-times');
 			navbar.classList.toggle('active');
 		}
-		
 		
 		document.querySelector('#login-btn').onclick = () => {
 			document.querySelector('.login-form-container').classList.toggle('active');
@@ -1041,8 +1006,7 @@
 		}
 		
 		/* hasta aqui */
-		
-		
+
 		document.querySelector('#register-btn').onclick = () => {
 			document.querySelector('.register-form-container').classList.toggle('active');
 		}
@@ -1060,7 +1024,6 @@
 		/* hasta aqui */
 		
 		window.onscroll = () => {
-		
 			if( window.scrollY > 0 ) {
 				document.querySelector('.header').classList.add('active');
 			} else {
@@ -1071,19 +1034,14 @@
 			navbar.classList.remove('active');
 		}
 		
-	
-		
 		window.onload = () => {
-		
 			if( window.scrollY > 0 ) {
 				document.querySelector('.header').classList.add('active');
 			} else {
 				document.querySelector('.header').classList.remove('active');
 			}
-
 		}
 
-		
 		var swiper = new Swiper(".featured-slider", {
 			slidesPerView: 1,
 			spaceBetween: 20,
@@ -1110,8 +1068,6 @@
 				},
 			},
 		});
-		
-		
 	</script>
 
 </body>
