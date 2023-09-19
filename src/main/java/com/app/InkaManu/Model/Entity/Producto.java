@@ -20,15 +20,12 @@ public class Producto {
     private int id;
 
     @NotNull
-    @NotBlank(message = "El nombre es obligatorio")
     private String nombre;
 
     @NotNull
-    @NotBlank(message = "La descripción es obligatoria")
-    @Column(columnDefinition = "TEXT")
     private String descripcion;
 
-    @Column(columnDefinition = "TEXT")
+    @NotNull
     private String imagen;
 
     @NotNull
@@ -37,6 +34,7 @@ public class Producto {
     @NotNull
     private int stock;
 
+    @NotNull
     @Column(columnDefinition = "TIMESTAMP")
     private LocalDateTime fechaCreacion;
 
