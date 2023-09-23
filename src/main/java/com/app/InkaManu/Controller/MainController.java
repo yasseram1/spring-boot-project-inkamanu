@@ -87,4 +87,10 @@ public class MainController {
 	public String prueba36(Model model) {		
 		return "detalle_de_mi_compra";
 	}
+
+
+	@GetMapping({"/pruebaJESUS" })
+	public String pruebaJESUS(Model model) {		
+		return "prueba_jesus_plantilla";
+	}
 }
