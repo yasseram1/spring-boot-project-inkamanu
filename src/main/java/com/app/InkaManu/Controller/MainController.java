@@ -153,6 +153,81 @@ public class MainController {
 		return "detalle_de_mi_compra";
 	}
 
+	/* ESTA VISTA SERIA PARA EL ADMINISTARDOR DESDE AHI 
+	PODRA IR A LA LISTA DE CLIENTES REGITSRADOS, A LA LISTA 
+	DE PRODUCTOS Y A LA LISTA DE COMPRAS 
+	DONDE PODRA ATENDER ESA COMPRA, EN LA VISTA DE LISTAR PRODUCTO PODRA
+	AGREGAR, EDITAR Y ELIMINAR PRODUCTO, Y EN LA LISTA DE CLIENTE DE IGUAL FORMA
+	TAMBIEN EL ADMIN PODRA VER SUS DATOS PERSONALES*/
+	@GetMapping({"/prueba37" })
+	public String prueba37(Model model) {		
+		return "inicio_admin";
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -166,14 +241,4 @@ public class MainController {
 
 
 	
-	/* ESTA VISTA SERIA PARA EL ADMINISTARDOR DESDE AHI 
-	PODRA IR A LA LISTA DE CLIENTES REGITSRADOS, A LA LISTA 
-	DE PRODUCTOS Y A LA LISTA DE COMPRAS 
-	DONDE PODRA ATENDER ESA COMPRA, EN LA VISTA DE LISTAR PRODUCTO PODRA
-	AGREGAR, EDITAR Y ELIMINAR PRODUCTO, Y EN LA LISTA DE CLIENTE DE IGUAL FORMA
-	TAMBIEN EL ADMIN PODRA VER SUS DATOS PERSONALES*/
-	@GetMapping({"/prueba37" })
-	public String prueba37(Model model) {		
-		return "inicio_admin";
-	}
 }
