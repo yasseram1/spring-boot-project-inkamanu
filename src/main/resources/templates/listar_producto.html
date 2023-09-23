@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" th:href="@{/ImagenesPrueba/sweet_stout.jpeg}" /> <!--  PARA CAMBIAR EL ICONO DE LA EMPRESA -->
-	<title>INDEX</title>
+	<title>LISTA DE PRODUCTOS</title>
 	<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -20,9 +20,13 @@
 			--light-my-blue: #6FA6FF;
 			/* Aquí defines el tono más claro */
 			--yellow: #40E0D0;
+			--light-yellow: hsl(177, 72%, 70%);
 			--amarillo: #f9d806;
 			--light-amarillo: #ffee80;
-			--light-yellow: hsl(177, 72%, 70%);
+			--rojo: #FF0000;
+			--light-rojo: #FFAFAF;
+			--verde: #369681;
+			--light-verde: #00B050;
 			--black: #130f40;
 			--light-color: #666;
 			--border: .1rem solid rgba(0, 0, 0, .1);
@@ -183,8 +187,8 @@
 			overflow-y: auto;
 			/* Agregar desplazamiento vertical cuando el contenido excede la altura */
 			height: 90vh;
-			/* Altura máxima del formulario, ajusta según sea necesario */
 			width: 115vh;
+			/* Altura máxima del formulario, ajusta según sea necesario */
 		}
 
 		.register-form-container form .inputBox {
@@ -377,8 +381,6 @@
 			border: .1rem solid var(--yellow);
 		}
 
-
-
 		.home {
 			padding-top: 10rem;
 			text-align: center;
@@ -405,7 +407,7 @@
 		.content-carrousel {
 			width: 100%;
 			position: absolute;
-			animation: rotar 13s infinite linear;
+			animation: rotar 10s infinite linear;
 			transform-style: preserve-3d;
 		}
 
@@ -470,7 +472,7 @@
 		}
 
 		.content-carrousel img {
-			width: 20rem;
+			width: 100%;
 			transition: all 300ms;
 		}
 
@@ -798,12 +800,259 @@
 		}
 
 
-		/* para ajustar las imagenes */
 
-		.image-fit {
-			/* Ajustar y recortar la imagen para llenar el contenedor esto es con chatgpt*/
-			height: 12rem;
-			/* Altura fija deseada para las imágenes en el carrusel */
+		/* registro de productos  */
+
+
+
+		.register-product-form-container {
+			height: 100%;
+			width: 100%;
+			background: rgba(255, 255, 255, .9);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			padding-top: 130px;
+			padding-bottom: 50px;
+		}
+
+		.register-product-form-container.active {
+			top: 0;
+		}
+
+		.register-product-form-container form {
+			margin-top: 100px;
+			text-align: center;
+			max-width: 1000rem;
+			border-radius: .5rem;
+			box-shadow: var(--box-shadow);
+			border: .1rem solid rgba(0, 0, 0, .2);
+			background: #fff;
+			padding: 1.5rem;
+			margin: 0 auto;
+			overflow-y: auto;
+			/* Agregar desplazamiento vertical cuando el contenido excede la altura */
+			height: 75vh;
+			width: 130vh;
+			/* Altura máxima del formulario, ajusta según sea necesario */
+		}
+
+		.register-product-form-container form .inputBox {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+
+		.register-product-form-container form h3 {
+			color: var(--black);
+			font-size: 2.5rem;
+			padding-bottom: 1rem 0;
+			text-transform: uppercase;
+		}
+
+		.register-product-form-container form .btn {
+			display: block;
+			width: 100%;
+			margin: .5rem 0;
+			background-color: var(--yellow);
+			/* Cambia el color de fondo */
+			color: var(--black);
+			/* Cambia el color del texto */
+			border: none;
+			border-radius: .5rem;
+			padding: 1rem;
+			font-size: 1.6rem;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+
+		.register-product-form-container form .btn:hover {
+			background-color: var(--amarillo);
+			/* Cambia el color de fondo al pasar el mouse */
+		}
+
+		.register-product-form-container form .inputBox .input {
+			width: 49%;
+		}
+
+		.register-product-form-container form .inputBox .input span {
+			display: block;
+			padding: .5rem 0;
+			font-size: 1.5rem;
+			color: var(--light-color);
+		}
+
+		.register-product-form-container form .inputBox .input input {
+			background: #eee;
+			border-radius: .5rem;
+			padding: 1rem;
+			font-size: 1.6rem;
+			color: var(--black);
+			text-transform: none;
+			margin-bottom: 1rem;
+			width: 100%;
+		}
+
+		.register-product-form-container form .inputBox .input input:focus {
+			border: .1rem solid var(--yellow);
+		}
+
+		.register-product-form-container form .inputBox .input select {
+			background: #eee;
+			border-radius: .5rem;
+			padding: 1rem;
+			font-size: 1.6rem;
+			color: var(--black);
+			text-transform: none;
+			margin-bottom: 1rem;
+			width: 100%;
+		}
+
+		.register-product-form-container form .inputBox .input select:focus {
+			border: .1rem solid var(--yellow);
+		}
+
+
+		/* estilos para la tabla productos */
+
+		body {
+			background: #eee;
+		}
+
+		.table-product-form-container {
+			padding-top: 100px;
+
+			align-items: center;
+			justify-content: center;
+			padding-bottom: 120px;
+		}
+
+		.table-product-form-container table {
+			background-color: white;
+			text-align: center;
+			border-collapse: collapse;
+		}
+
+		.table-product-form-container th,
+		td {
+			padding: 10px;
+			/* Aumenta el espaciado para mejorar la legibilidad */
+			border: 1px solid #ddd;
+			/* Agrega un borde en todas las celdas */
+			font-size: 1.4rem;
+		}
+
+		.table-product-form-container thead {
+			background-color: #000000;
+			/*#246355*/
+			border-bottom: solid 5px var(--light-yellow);
+			color: white;
+		}
+
+		.table-product-form-container tr:nth-child(even) {
+			background-color: #ddd;
+		}
+
+		.table-product-form-container tr:hover {
+			background-color: var(--my-blue);
+			color: white;
+		}
+
+		.listar_product .table-product-form-container .Buscador {
+			/*display: flex;*/
+			justify-content: space-between;
+			align-items: center;
+			background: var(--my-blue);
+			border-radius: 0.5rem;
+			box-shadow: var(--box-shadow);
+			padding: 10px;
+
+			/* Agregar margen superior para separar del encabezado */
+			max-width: 112rem;
+		}
+
+		.listar_product .table-product-form-container .Buscador span {
+			font-weight: bold;
+			margin: 10px;
+			font-size: 16px;
+			color: var(--black);
+		
+			border: none;
+		}
+
+		.listar_product .table-product-form-container .Buscador .btnBuscar {
+			display: inline-block;
+			margin-top: 1rem;
+			border-radius: .5rem;
+			background: var(--light-yellow);
+			color: var(--black);
+			font-weight: 500;
+			font-size: 1.7rem;
+			cursor: pointer;
+			padding: .5rem 1.5rem;
+		}
+
+		.listar_product .table-product-form-container .Buscador .btnBuscar:hover {
+			background: var(--yellow);
+		}
+
+		.listar_product .table-product-form-container .Buscador .btnAgregar {
+			display: inline-block;
+			margin-top: 1rem;
+			border-radius: .5rem;
+			background: var(--light-amarillo);
+			color: var(--black);
+			font-weight: 500;
+			font-size: 1.7rem;
+			cursor: pointer;
+			padding: .5rem 1.5rem;
+		}
+
+		.listar_product .table-product-form-container .Buscador .btnAgregar:hover {
+			background: var(--amarillo);
+		}
+
+		.listar_product .table-product-form-container .Buscador .btnPDF {
+			display: inline-block;
+			margin-top: 1rem;
+			border-radius: .5rem;
+			background: var(--light-rojo);
+			color: var(--black);
+			font-weight: 500;
+			font-size: 1.7rem;
+			cursor: pointer;
+			padding: .5rem 1.5rem;
+		}
+
+		.listar_product .table-product-form-container .Buscador .btnPDF:hover {
+			background: var(--rojo);
+		}
+
+		.listar_product .table-product-form-container .Buscador .btnExcel {
+			display: inline-block;
+			margin-top: 1rem;
+			border-radius: .5rem;
+			background: var(--light-verde);
+			color: var(--black);
+			font-weight: 500;
+			font-size: 1.7rem;
+			cursor: pointer;
+			padding: .5rem 1.5rem;
+		}
+
+		.listar_product .table-product-form-container .Buscador .btnExcel:hover {
+			background: var(--verde);
+		}
+
+		.listar_product .table-product-form-container .Buscador input[type="text"] {
+			flex: 0.5;
+			padding: 8px;
+			border: none;
+			border-radius: 0.5rem;
+			margin-right: 10px;
+			font-weight: 500;
+			font-size: 1.7rem;
 		}
 	</style>
 </head>
@@ -823,12 +1072,9 @@
 		</nav>
 
 		<div class="iconosxd">
-			<div class="fas fa-shopping-bag"></div>
 			<div class="fas fa-shopping-cart" id="cart-btn"></div>
 			<div class="far fa-user" id="login-btn"></div>
-			<div class="fas fa-sign-out-alt"></div> <!-- Icono para cerrar sesión-->
 		</div>
-
 	</header>
 	<!---------------------------- header section ends ---------------------------->
 
@@ -920,210 +1166,57 @@
 	</div>
 	<!---------------------------- register form ---------------------------->
 
-	<!---------------------------- home section stars ---------------------------->
-	<section class="home" id="home">
-		<h1>Bienvenido a InkaManu</h1>
-		<div class="content-all">
-			<div class="content-carrousel">
-				<figure><img class="d-block w-100 image-fit" src="ImagenesPrueba/sweet_stout.jpeg"></figure>
-				<figure><img class="d-block w-100 image-fit" src="ImagenesPrueba/sweet_stout.jpeg"></figure>
-				<figure><img class="d-block w-100 image-fit" src="ImagenesPrueba/sweet_stout.jpeg"></figure>
-				<figure><img class="d-block w-100 image-fit" src="ImagenesPrueba/sweet_stout.jpeg"></figure>
-				<figure><img class="d-block w-100 image-fit" src="ImagenesPrueba/sweet_stout.jpeg"></figure>
-				<figure><img class="d-block w-100 image-fit" src="ImagenesPrueba/sweet_stout.jpeg"></figure>
-				<figure><img class="d-block w-100 image-fit" src="ImagenesPrueba/sweet_stout.jpeg"></figure>
-				<figure><img class="d-block w-100 image-fit" src="ImagenesPrueba/porter.jpeg"></figure>
+	<!---------------------------- listar producto stars  ---------------------------->
+	<section class="listar_product" id="listar_product">
+		<div class="table-product-form-container">
+			<h1 class="heading"> <span>Lista de Productos</span></h1>
+
+			<div class="Buscador">
+				<span>Buscar Producto</span>
+				<input type="text" placeholder="Ejemplo: Pilsen....">
+				<input type="submit" value="Buscar Producto" class="btnBuscar">
+				<input type="submit" value="Agregar Producto" class="btnAgregar">
+				<input type="submit" value="Exportar en PDF" class="btnPDF">
+				<input type="submit" value="Exportar en Excel" class="btnExcel">
 			</div>
+			<br>
+			<table>
+				<thead>
+					<tr>
+						<th>Codigo</th>
+						<th>Imagen</th>
+						<th>Nombre</th>
+						<th>Descripción</th>
+						<th>Tipo</th>
+						<th>Grado de alcohol</th>
+						<th>Precio</th>
+						<th>Stock</th>
+						<th>Fecha de registro</th>
+						<th>Fecha de actualización</th>
+						<th>Editar</th>
+						<th>Eliminar</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><a></a></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td><a></a></td>
+						<td><a></a></td>
+						<td><button></button></td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	</section>
-	<!---------------------------- home section ends ---------------------------->
-
-	<!---------------------------- featured section stars ---------------------------->
-	<section class="featured" id="featured">
-		<h1 class="heading"> <span>Productos</span> de InkaManu </h1>
-		<div class="swiper featured-slider">
-			<div class="swiper-wrapper">
-				<div class="swiper-slide box">
-					<img src="ImagenesPrueba/porter.jpeg" alt="">
-					<h3>Producto 1</h3>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<div class="price">S/. 15,00/-</div>
-					<a th:href="@{/prueba23}" class="btn">Ver Producto</a>
-				</div>
-
-				<div class="swiper-slide box">
-					<img src="ImagenesPrueba/sweet_stout.jpeg" alt="">
-					<h3>Producto 2</h3>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<div class="price">S/. 15,00/-</div>
-					<a th:href="@{/prueba23}" class="btn">Ver Producto</a>
-				</div>
-
-				<div class="swiper-slide box">
-					<img src="ImagenesPrueba/porter.jpeg" alt="">
-					<h3>Producto 3</h3>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<div class="price">S/. 15,00/-</div>
-					<a th:href="@{/prueba23}" class="btn">Ver Producto</a>
-				</div>
-
-				<div class="swiper-slide box">
-					<img src="ImagenesPrueba/sweet_stout.jpeg" alt="">
-					<h3>Producto 4</h3>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<div class="price">S/. 15,00/-</div>
-					<a th:href="@{/prueba23}" class="btn">Ver Producto</a>
-				</div>
-
-				<div class="swiper-slide box">
-					<img src="ImagenesPrueba/porter.jpeg" alt="">
-					<h3>Producto 5</h3>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<div class="price">S/. 15,00/-</div>
-					<a th:href="@{/prueba23}" class="btn">Ver Producto</a>
-				</div>
-
-				<div class="swiper-slide box">
-					<img src="ImagenesPrueba/sweet_stout.jpeg" alt="">
-					<h3>Producto 6</h3>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<div class="price">S/. 15,00/-</div>
-					<a th:href="@{/prueba23}" class="btn">Ver Producto</a>
-				</div>
-
-				<div class="swiper-slide box">
-					<img src="ImagenesPrueba/porter.jpeg" alt="">
-					<h3>Producto 7</h3>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<div class="price">S/. 15,00/-</div>
-					<a th:href="@{/prueba23}" class="btn">Ver Producto</a>
-				</div>
-
-				<div class="swiper-slide box">
-					<img src="ImagenesPrueba/sweet_stout.jpeg" alt="">
-					<h3>Producto 8</h3>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<div class="price">S/. 15,00/-</div>
-					<a th:href="@{/prueba23}" class="btn">Ver Producto</a>
-				</div>
-			</div>
-
-			<div class="swiper-pagination"></div>
-		</div>
-	</section>
-	<!---------------------------- featured section ends ---------------------------->
-
-	<!---------------------------- descripcion section stars ---------------------------->
-	<h1 class="heading" id="descripcion"> <span>Descripción de la empresa</span></h1>
-	<section class="icons-container">
-		<div class="icons">
-			<i class="fas fa-home"></i>
-			<div class="content">
-				<h3>C&L Team SAC</h3>
-				<p>Es una empresa peruana cervecera originaria del distrito Caraz del departamento de Ancash, fundada en
-					el 2021 por el ingeniero Manuel Chincha. El junto a su enamorada y su padre, brindan cerveza de
-					calidad con agradable sabor y responsable con en el medio ambiente. Además, continúa innovando sus
-					productos para llegar a más personas y expandirse haciéndose conocido por la experiencia de su
-					servicio y el sabor sus cervezas.</p>
-			</div>
-		</div>
-	</section>
-	<!---------------------------- descripcion section ends ---------------------------->
-
-	<!---------------------------- mision y vision section stars---------------------------->
-	<h1 class="heading" id="mision"> <span>Misión y Visión</span></h1>
-	<section class="icons-container">
-		<div class="icons">
-			<i class="fas fa-home"></i>
-			<div class="content">
-				<h3>Misión</h3>
-				<p>Buscamos ser un producto consumido a nivel nacional por brindar una cerveza artesanal que mantenga
-					los estándares de calidad y se distinga por su sabor, aroma y sobre todo por ser un producto
-					eco-amigable para la contribución de la responsabilidad social. Deseamos posicionarnos como una
-					cerveza preferencial para acompañar comidas y momentos placenteros</p>
-			</div>
-		</div>
-
-		<div class="icons">
-			<i class="fas fa-home"></i>
-			<div class="content">
-				<h3>Visión</h3>
-				<p>La empresa tiene por objetivo ser la marca líder en el mercado nacional de la cerveza artesanal
-					trabajando en la innovación de sabores y aromas para ofrecer a la cultura cervecera nuestros
-					productos</p>
-			</div>
-		</div>
-	</section>
-	<!---------------------------- mision y vision section ends ---------------------------->
-
-	<!---------------------------- contact section stars O  ---------------------------->
-
-	<section class="contact" id="contact">
-		<h1 class="heading"> <span>Contáctanos</span></h1>
-		<div class="row">
-			<iframe class="map"
-				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.031292261987!2d-76.93455222707215!3d-12.041366688194957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c6a67667e425%3A0x937f2051f03452a1!2sReal%20Plaza%20Puruchuco!5e0!3m2!1ses!2spe!4v1690722522448!5m2!1ses!2spe"
-				allowfullscreen="" loading="lazy"></iframe>
-
-			<form action="">
-				<h3>Ponerse En Contacto</h3>
-				<input type="text" placeholder="Nombre" class="box">
-				<input type="email" placeholder="Correo electronico" class="box">
-				<input type="number" placeholder="Número" class="box">
-				<textarea placeholder="Mensaje" class="box" rows="10" cols="30"></textarea>
-				<input type="submit" value="Enviar Mensaje" class="btn">
-			</form>
-		</div>
-	</section>
-	<!---------------------------- contact section ends  ---------------------------->
+	<!---------------------------- listar producto ends  ---------------------------->
 
 	<!---------------------------- footer section stars  ---------------------------->
 
@@ -1237,7 +1330,7 @@
 			grabCursor: true,
 			centeredSlides: true,
 			autoplay: {
-				delay: 2000,
+				delay: 1500,
 				disableOnInteraction: false,
 			},
 			pagination: {

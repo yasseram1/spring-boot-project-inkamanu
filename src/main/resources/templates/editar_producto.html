@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" th:href="@{/ImagenesPrueba/sweet_stout.jpeg}" /> <!--  PARA CAMBIAR EL ICONO DE LA EMPRESA -->
-	<title>INDEX</title>
+	<title>EDITAR PRODUCTO</title>
 	<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -183,8 +183,8 @@
 			overflow-y: auto;
 			/* Agregar desplazamiento vertical cuando el contenido excede la altura */
 			height: 90vh;
-			/* Altura máxima del formulario, ajusta según sea necesario */
 			width: 115vh;
+			/* Altura máxima del formulario, ajusta según sea necesario */
 		}
 
 		.register-form-container form .inputBox {
@@ -377,8 +377,6 @@
 			border: .1rem solid var(--yellow);
 		}
 
-
-
 		.home {
 			padding-top: 10rem;
 			text-align: center;
@@ -405,7 +403,7 @@
 		.content-carrousel {
 			width: 100%;
 			position: absolute;
-			animation: rotar 13s infinite linear;
+			animation: rotar 10s infinite linear;
 			transform-style: preserve-3d;
 		}
 
@@ -470,7 +468,7 @@
 		}
 
 		.content-carrousel img {
-			width: 20rem;
+			width: 100%;
 			transition: all 300ms;
 		}
 
@@ -798,13 +796,121 @@
 		}
 
 
-		/* para ajustar las imagenes */
 
-		.image-fit {
-			/* Ajustar y recortar la imagen para llenar el contenedor esto es con chatgpt*/
-			height: 12rem;
-			/* Altura fija deseada para las imágenes en el carrusel */
+		/* registro de productos  */
+
+		body {
+			background: #666;
 		}
+
+		.editar-product-form-container {
+			height: 100%;
+			width: 100%;
+			background: rgba(255, 255, 255, .9);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			padding-top: 130px;
+			padding-bottom: 50px;
+		}
+
+		.editar-product-form-container.active {
+			top: 0;
+		}
+
+		.editar-product-form-container form {
+			margin-top: 100px;
+			text-align: center;
+			max-width: 1000rem;
+			border-radius: .5rem;
+			box-shadow: var(--box-shadow);
+			border: .1rem solid rgba(0, 0, 0, .2);
+			background: #fff;
+			padding: 1.5rem;
+			margin: 0 auto;
+			overflow-y: auto;
+			/* Agregar desplazamiento vertical cuando el contenido excede la altura */
+			height: 75vh;
+			width: 130vh;
+			/* Altura máxima del formulario, ajusta según sea necesario */
+		}
+
+		.editar-product-form-container form .inputBox {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+
+		.editar-product-form-container form h3 {
+			color: var(--black);
+			font-size: 2.5rem;
+			padding-bottom: 1rem 0;
+			text-transform: uppercase;
+		}
+
+		.editar-product-form-container form .btn {
+			display: block;
+			width: 100%;
+			margin: .5rem 0;
+			background-color: var(--yellow);
+			/* Cambia el color de fondo */
+			color: var(--black);
+			/* Cambia el color del texto */
+			border: none;
+			border-radius: .5rem;
+			padding: 1rem;
+			font-size: 1.6rem;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+
+		.editar-product-form-container form .btn:hover {
+			background-color: var(--amarillo);
+			/* Cambia el color de fondo al pasar el mouse */
+		}
+
+		.editar-product-form-container form .inputBox .input {
+			width: 49%;
+		}
+
+		.editar-product-form-container form .inputBox .input span {
+			display: block;
+			padding: .5rem 0;
+			font-size: 1.5rem;
+			color: var(--light-color);
+		}
+
+		.editar-product-form-container form .inputBox .input input {
+			background: #eee;
+			border-radius: .5rem;
+			padding: 1rem;
+			font-size: 1.6rem;
+			color: var(--black);
+			text-transform: none;
+			margin-bottom: 1rem;
+			width: 100%;
+		}
+
+		.editar-product-form-container form .inputBox .input input:focus {
+			border: .1rem solid var(--yellow);
+		}
+
+		.editar-product-form-container form .inputBox .input select {
+			background: #eee;
+			border-radius: .5rem;
+			padding: 1rem;
+			font-size: 1.6rem;
+			color: var(--black);
+			text-transform: none;
+			margin-bottom: 1rem;
+			width: 100%;
+		}
+
+		.editar-product-form-container form .inputBox .input select:focus {
+			border: .1rem solid var(--yellow);
+		}
+		
 	</style>
 </head>
 
@@ -823,12 +929,9 @@
 		</nav>
 
 		<div class="iconosxd">
-			<div class="fas fa-shopping-bag"></div>
 			<div class="fas fa-shopping-cart" id="cart-btn"></div>
 			<div class="far fa-user" id="login-btn"></div>
-			<div class="fas fa-sign-out-alt"></div> <!-- Icono para cerrar sesión-->
 		</div>
-
 	</header>
 	<!---------------------------- header section ends ---------------------------->
 
@@ -920,211 +1023,81 @@
 	</div>
 	<!---------------------------- register form ---------------------------->
 
-	<!---------------------------- home section stars ---------------------------->
-	<section class="home" id="home">
-		<h1>Bienvenido a InkaManu</h1>
-		<div class="content-all">
-			<div class="content-carrousel">
-				<figure><img class="d-block w-100 image-fit" src="ImagenesPrueba/sweet_stout.jpeg"></figure>
-				<figure><img class="d-block w-100 image-fit" src="ImagenesPrueba/sweet_stout.jpeg"></figure>
-				<figure><img class="d-block w-100 image-fit" src="ImagenesPrueba/sweet_stout.jpeg"></figure>
-				<figure><img class="d-block w-100 image-fit" src="ImagenesPrueba/sweet_stout.jpeg"></figure>
-				<figure><img class="d-block w-100 image-fit" src="ImagenesPrueba/sweet_stout.jpeg"></figure>
-				<figure><img class="d-block w-100 image-fit" src="ImagenesPrueba/sweet_stout.jpeg"></figure>
-				<figure><img class="d-block w-100 image-fit" src="ImagenesPrueba/sweet_stout.jpeg"></figure>
-				<figure><img class="d-block w-100 image-fit" src="ImagenesPrueba/porter.jpeg"></figure>
-			</div>
-		</div>
-	</section>
-	<!---------------------------- home section ends ---------------------------->
+	<!---------------------------- register product form  ---------------------------->
 
-	<!---------------------------- featured section stars ---------------------------->
-	<section class="featured" id="featured">
-		<h1 class="heading"> <span>Productos</span> de InkaManu </h1>
-		<div class="swiper featured-slider">
-			<div class="swiper-wrapper">
-				<div class="swiper-slide box">
-					<img src="ImagenesPrueba/porter.jpeg" alt="">
-					<h3>Producto 1</h3>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<div class="price">S/. 15,00/-</div>
-					<a th:href="@{/prueba23}" class="btn">Ver Producto</a>
+	<div class="editar-product-form-container">
+		<form action="">
+			<h3>ACTUALIZANDO PRODUCTO</h3>
+			<div class="inputBox">
+				<div class="input">
+					<span>Nombre del producto</span>
+					<input type="text" placeholder="Introduzca el nombre">
 				</div>
 
-				<div class="swiper-slide box">
-					<img src="ImagenesPrueba/sweet_stout.jpeg" alt="">
-					<h3>Producto 2</h3>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<div class="price">S/. 15,00/-</div>
-					<a th:href="@{/prueba23}" class="btn">Ver Producto</a>
-				</div>
-
-				<div class="swiper-slide box">
-					<img src="ImagenesPrueba/porter.jpeg" alt="">
-					<h3>Producto 3</h3>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<div class="price">S/. 15,00/-</div>
-					<a th:href="@{/prueba23}" class="btn">Ver Producto</a>
-				</div>
-
-				<div class="swiper-slide box">
-					<img src="ImagenesPrueba/sweet_stout.jpeg" alt="">
-					<h3>Producto 4</h3>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<div class="price">S/. 15,00/-</div>
-					<a th:href="@{/prueba23}" class="btn">Ver Producto</a>
-				</div>
-
-				<div class="swiper-slide box">
-					<img src="ImagenesPrueba/porter.jpeg" alt="">
-					<h3>Producto 5</h3>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<div class="price">S/. 15,00/-</div>
-					<a th:href="@{/prueba23}" class="btn">Ver Producto</a>
-				</div>
-
-				<div class="swiper-slide box">
-					<img src="ImagenesPrueba/sweet_stout.jpeg" alt="">
-					<h3>Producto 6</h3>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<div class="price">S/. 15,00/-</div>
-					<a th:href="@{/prueba23}" class="btn">Ver Producto</a>
-				</div>
-
-				<div class="swiper-slide box">
-					<img src="ImagenesPrueba/porter.jpeg" alt="">
-					<h3>Producto 7</h3>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<div class="price">S/. 15,00/-</div>
-					<a th:href="@{/prueba23}" class="btn">Ver Producto</a>
-				</div>
-
-				<div class="swiper-slide box">
-					<img src="ImagenesPrueba/sweet_stout.jpeg" alt="">
-					<h3>Producto 8</h3>
-					<div class="stars">
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-						<i class="fas fa-star"></i>
-					</div>
-					<div class="price">S/. 15,00/-</div>
-					<a th:href="@{/prueba23}" class="btn">Ver Producto</a>
+				<div class="input">
+					<span>Descripción del producto</span>
+					<input type="text" placeholder="Introduzca su descripción">
 				</div>
 			</div>
 
-			<div class="swiper-pagination"></div>
-		</div>
-	</section>
-	<!---------------------------- featured section ends ---------------------------->
+			<div class="inputBox">
+				<div class="input">
+					<span>Cantidad en Stock</span>
+					<input type="number" placeholder="Introduzca la cantidad">
+				</div>
 
-	<!---------------------------- descripcion section stars ---------------------------->
-	<h1 class="heading" id="descripcion"> <span>Descripción de la empresa</span></h1>
-	<section class="icons-container">
-		<div class="icons">
-			<i class="fas fa-home"></i>
-			<div class="content">
-				<h3>C&L Team SAC</h3>
-				<p>Es una empresa peruana cervecera originaria del distrito Caraz del departamento de Ancash, fundada en
-					el 2021 por el ingeniero Manuel Chincha. El junto a su enamorada y su padre, brindan cerveza de
-					calidad con agradable sabor y responsable con en el medio ambiente. Además, continúa innovando sus
-					productos para llegar a más personas y expandirse haciéndose conocido por la experiencia de su
-					servicio y el sabor sus cervezas.</p>
+				<div class="input">
+					<span>Grado de Alcohol</span>
+					<input type="number" placeholder="Ejemplo: 5%" min="1">
+				</div>
 			</div>
-		</div>
-	</section>
-	<!---------------------------- descripcion section ends ---------------------------->
 
-	<!---------------------------- mision y vision section stars---------------------------->
-	<h1 class="heading" id="mision"> <span>Misión y Visión</span></h1>
-	<section class="icons-container">
-		<div class="icons">
-			<i class="fas fa-home"></i>
-			<div class="content">
-				<h3>Misión</h3>
-				<p>Buscamos ser un producto consumido a nivel nacional por brindar una cerveza artesanal que mantenga
-					los estándares de calidad y se distinga por su sabor, aroma y sobre todo por ser un producto
-					eco-amigable para la contribución de la responsabilidad social. Deseamos posicionarnos como una
-					cerveza preferencial para acompañar comidas y momentos placenteros</p>
+			<div class="inputBox">
+				<div class="input">
+					<span>Precio del Producto</span>
+					<input type="number" placeholder="Ejemplo: S/.50 soles">
+				</div>
+
+				<div class="input">
+					<span>Tipo de Cerveza</span>
+					<select>
+						<option value="" disabled selected>Seleccione una opción</option>
+						<option value="1">Lager</option>
+						<option value="2">Ale</option>
+						<option value="3">Cerveza de Trigo(Wheat Beer)</option>
+						<option value="4">Cerveza de Abadia(Abbey Beer)</option>
+						<option value="5">Cerveza Lambic</option>
+						<option value="6">Cerveza de Especias</option>
+						<option value="7">Cerveza de Temporada</option>
+						<option value="8">Cerveza Artesanal (Craft Beer)</option>
+						<option value="9">Sin Alcohol o Baja en Alcohol</option>
+						<option value="10">Sin Gluten</option>
+						<option value="11">Híbrida o Experimental</option>
+					</select>
+				</div>
 			</div>
-		</div>
 
-		<div class="icons">
-			<i class="fas fa-home"></i>
-			<div class="content">
-				<h3>Visión</h3>
-				<p>La empresa tiene por objetivo ser la marca líder en el mercado nacional de la cerveza artesanal
-					trabajando en la innovación de sabores y aromas para ofrecer a la cultura cervecera nuestros
-					productos</p>
+			<div class="inputBox">
+				<div class="input">
+					<span>Porcentaje de descuento</span>
+					<select>
+						<option value="" disabled selected>Seleccione una opción</option>
+						<option value="5">5%</option>
+						<option value="10">10%</option>
+						<option value="No">No existe descuento en este producto</option>
+					</select>
+				</div>
+
+				<div class="input">
+					<span>Imagen del Producto</span>
+					<input type="file">
+				</div>
 			</div>
-		</div>
-	</section>
-	<!---------------------------- mision y vision section ends ---------------------------->
+			<input type="submit" value="Actualizar Producto" class="btn">
+		</form>
+	</div>
 
-	<!---------------------------- contact section stars O  ---------------------------->
-
-	<section class="contact" id="contact">
-		<h1 class="heading"> <span>Contáctanos</span></h1>
-		<div class="row">
-			<iframe class="map"
-				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3902.031292261987!2d-76.93455222707215!3d-12.041366688194957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c6a67667e425%3A0x937f2051f03452a1!2sReal%20Plaza%20Puruchuco!5e0!3m2!1ses!2spe!4v1690722522448!5m2!1ses!2spe"
-				allowfullscreen="" loading="lazy"></iframe>
-
-			<form action="">
-				<h3>Ponerse En Contacto</h3>
-				<input type="text" placeholder="Nombre" class="box">
-				<input type="email" placeholder="Correo electronico" class="box">
-				<input type="number" placeholder="Número" class="box">
-				<textarea placeholder="Mensaje" class="box" rows="10" cols="30"></textarea>
-				<input type="submit" value="Enviar Mensaje" class="btn">
-			</form>
-		</div>
-	</section>
-	<!---------------------------- contact section ends  ---------------------------->
-
+	<!---------------------------- register product form ---------------------------->
 	<!---------------------------- footer section stars  ---------------------------->
 
 	<section class="footer">
@@ -1237,7 +1210,7 @@
 			grabCursor: true,
 			centeredSlides: true,
 			autoplay: {
-				delay: 2000,
+				delay: 1500,
 				disableOnInteraction: false,
 			},
 			pagination: {
