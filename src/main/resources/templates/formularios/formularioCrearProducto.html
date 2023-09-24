@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InkaManu | Agregar producto</title>
+</head>
+
+<body>
+    <div th:if="${success != null}" th:text="${success}"></div>
+    <h2>Nuevo Producto</h2>
+    <form th:action="@{/inkamanu/admin/guardarProductoNuevo}" th:object="${productoDTO}" th:method="post" enctype="multipart/form-data">
+        <!-- Campo para el nombre -->
+        <div>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" th:field="*{nombre}">
+            <div th:errors="*{nombre}"></div>
+        </div>
+
+        <!-- Campo para la descripción -->
+        <div>
+            <label for="descripcion">Descripción:</label>
+            <textarea id="descripcion" name="descripcion" th:field="*{descripcion}"></textarea>
+            <div th:errors="*{descripcion}"></div>
+        </div>
+
+        <!-- Campo para la imagen -->
+        <div>
+            <label for="imagen">Imagen:</label>
+            <input type="file" id="imagen" name="imagen" th:field="*{imagen}">
+        </div>
+
+        <!-- Campo para el precio -->
+        <div>
+            <label for="precio">Precio:</label>
+            <input type="number" id="precio" name="precio" th:field="*{precio}" step="0.01">
+            <div th:errors="*{precio}"></div>
+        </div>
+
+        <!-- Campo para el stock -->
+        <div>
+            <label for="stock">Stock:</label>
+            <input type="number" id="stock" name="stock" th:field="*{stock}">
+            <div th:errors="*{stock}"></div>
+        </div>
+
+        <!-- Botón para enviar el formulario -->
+        <button type="submit">Crear Producto</button>
+    </form>
+</body>
+
+</html>

@@ -13,13 +13,12 @@ public class ProductoDTO {
     @NotBlank(message = "La descripción es obligatoria")
     private String descripcion;
 
-    @NotNull(message = "La imagen es obligatoria")
     private MultipartFile imagen;
 
-    @NotNull
+    @NotNull(message = "El precio es obligatorio")
     private Double precio;
 
-    @NotNull
+    @NotNull(message = "El stock es obligatorio")
     private int stock;
 
     public String getNombre() {

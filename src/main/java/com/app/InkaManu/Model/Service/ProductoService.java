@@ -5,7 +5,7 @@ import java.util.List;
 import com.app.InkaManu.Model.Entity.Producto;
 
 public interface ProductoService {
-    Producto createProduct(Producto producto);
+    Producto saveProduct(Producto producto);
 
     Producto getProductById(int producotId);
 
