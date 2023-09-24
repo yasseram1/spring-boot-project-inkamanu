@@ -2,7 +2,11 @@ package com.app.InkaManu.Controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class MainController {
@@ -22,7 +26,7 @@ public class MainController {
 	al final es lo mismo
 	*/
     @GetMapping({"/prueba22" })
-	public String prueba22(Model model) {		
+	public String prueba22(Model model) {
 		return "index";
 	}
 	
@@ -33,7 +37,8 @@ public class MainController {
 	y ver la imagen un pcoo mas grande y podra agregarlo al carrito
 	*/
 	@GetMapping({"/prueba23" })
-	public String prueba23(Model model) {		
+	public String prueba23(Model model) {
+
 		return "detalle_producto";
 	}
 	
@@ -151,4 +156,5 @@ public class MainController {
 	public String pruebaJESUS(Model model) {		
 		return "prueba_jesus_plantilla";
 	}
+
 }
