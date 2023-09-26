@@ -25,6 +25,7 @@ public class Producto {
     private String descripcion;
 
     @NotNull
+    @Column(columnDefinition = "CLOB")
     private String imagen;
 
     @NotNull
