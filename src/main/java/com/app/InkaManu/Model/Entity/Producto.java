@@ -1,4 +1,4 @@
-package com.app.InkaManu.Model.Entity;
+    package com.app.InkaManu.Model.Entity;
 
 import java.time.LocalDateTime;
 
