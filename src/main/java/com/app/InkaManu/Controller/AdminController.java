@@ -4,6 +4,7 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -13,8 +14,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.client.HttpClientErrorException.NotFound;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -121,6 +124,41 @@ public class AdminController {
         model.addAttribute("listaProductos", listaProductos);
 
         return "listar_producto";
+    }
+
+    @GetMapping("/admin/editarProducto/{id}")
+    public String editarProducto(@PathVariable(name = "id") int id, Model model) {
+        Producto p = productoService.getProductById(id);
+
+        if (p == null) {
+            return "redirect:/inkamanu/admin/listaProductos";
+        }
+
+        ProductoDTO productoDTO = new ProductoDTO();
+        productoDTO.setDescripcion(p.getDescripcion());
+        productoDTO.setGradoAlcohol(p.getGradoAlcohol());
+        productoDTO.setId(p.getId());
+        productoDTO.setNombre(p.getNombre());
+        productoDTO.setPorcentajeDescuento(p.getPorcentajeDescuento());
+        productoDTO.setPrecio(p.getPrecio());
+        productoDTO.setStock(p.getStock());
+        productoDTO.setTipoCerveza(p.getTipoCerveza());
+
+        model.addAttribute("productoDTO", p);
+        return "formularios/editar_producto";
+    }
+
+    @PostMapping("/admin/guardarProductoEditado")
+    public String guardarProductoEditado(@Valid @ModelAttribute ProductoDTO productoDTO, BindingResult result,
+            Model model, RedirectAttributes redirectAttrs) {
+
+        if (result.hasErrors()) {
+            return "formularios/registrar_producto";
+        }
+
+        productoService.updateProduct(productoDTO);
+        redirectAttrs.addFlashAttribute("success", "Producto editado");
+        return "redirect:/inkamanu/admin/editarProducto/" + productoDTO.getId();
     }
 
 }

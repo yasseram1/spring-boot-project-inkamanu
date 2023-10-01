@@ -8,8 +8,8 @@
 	<link rel="icon" th:href="@{/ImagenesPrueba/sweet_stout.jpeg}" /> <!--  PARA CAMBIAR EL ICONO DE LA EMPRESA -->
 	<title>LISTA DE PRODUCTOS</title>
 	<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
-
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<link rel="stylesheet" href="/css/color-iconos.css">
 
 	<!-- Styles -->
 	<style>
@@ -1200,14 +1200,17 @@
 				<tbody>
 					<tr th:each="producto : ${listaProductos}">
 						<td th:text="${producto.id}"></td>
-						<td><img th:src="${producto.imagen}" alt="Imagen del producto" width="150px" height="150px"/></td>
+						<td><img th:src="${producto.imagen}" alt="Imagen del producto" width="150px" height="150px" />
+						</td>
 						<td th:text="${producto.nombre}"></td>
 						<td th:text="${producto.descripcion}"></td>
 						<td th:text="${producto.precio}"></td>
 						<td th:text="${producto.stock}"></td>
 						<td th:text="${producto.fechaCreacion}"></td>
-						<td th:text="${productoActualizacion == null ? 'No se ha actualizado' : producto.fechaActualizacion}"></td>
-						<td><a></a></td>
+						<td th:text="${producto.fechaActualizacion}" th:if="${producto.fechaActualizacion != null}"></td>
+						<td th:if="${producto.fechaActualizacion == null}">No se ha actualizado</td>
+						<td><a th:href="@{editarProducto/{id}(id=${producto.id})}"><i
+									class="fa-solid fa-pen-to-square fa-2xl" id="icon-editar"></i></a></td>
 						<td><a></a></td>
 						<td><a></a></td>
 					</tr>
@@ -1349,7 +1352,8 @@
 			},
 		});
 	</script>
-
+	<script src="/js/toast.js"></script>
+	<script src="https://kit.fontawesome.com/c37024d023.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

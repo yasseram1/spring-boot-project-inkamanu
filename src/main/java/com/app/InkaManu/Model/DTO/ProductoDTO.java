@@ -7,6 +7,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class ProductoDTO {
 
+    private int id;
+
     @NotBlank(message = "El nombre es obligatorio")
     private String nombre;
 
@@ -92,6 +94,14 @@ public class ProductoDTO {
 
     public void setPorcentajeDescuento(Double porcentajeDescuento) {
         this.porcentajeDescuento = porcentajeDescuento;
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
 }

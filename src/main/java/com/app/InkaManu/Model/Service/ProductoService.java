@@ -2,6 +2,7 @@ package com.app.InkaManu.Model.Service;
 
 import java.util.List;
 
+import com.app.InkaManu.Model.DTO.ProductoDTO;
 import com.app.InkaManu.Model.Entity.Producto;
 
 public interface ProductoService {
@@ -11,7 +12,7 @@ public interface ProductoService {
 
     List<Producto> getAllProducts();
 
-    void updateProduct(Producto producto);
+    void updateProduct(ProductoDTO producto);
 
     void deleteProduct(int productoId);
 }
