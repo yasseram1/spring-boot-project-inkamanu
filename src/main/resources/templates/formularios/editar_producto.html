@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" th:href="@{/ImagenesPrueba/sweet_stout.jpeg}" /> <!--  PARA CAMBIAR EL ICONO DE LA EMPRESA -->
-	<title>REGISTRO DE PRODUCTOS</title>
+	<title>EDITAR DE PRODUCTO</title>
 	<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
 	<link rel="stylesheet" href="/css/registrar_producto.css">
 	<link rel="stylesheet" href="/css/toast.css">
@@ -129,7 +129,7 @@
 			enctype="multipart/form-data">
 			<div class="volverAtras"><a th:href="@{/inkamanu/admin/listaProductos}"><i
 						class="fa-sharp fa-solid fa-arrow-left" style="color: #000000;"></i> Volver</a></div>
-			<h3>REGISTRO DE PRODUCTOS</h3>
+			<h3>EDITAR PRODUCTO</h3>
 			<input type="hidden" th:field="*{id}">
 			<div class="inputBox">
 				<div class="input">
@@ -202,7 +202,7 @@
 					<input type="file" th:field="*{imagen}">
 				</div>
 			</div>
-			<input type="submit" value="Registrar Producto" class="btn">
+			<input type="submit" value="Editar Producto" class="btn">
 		</form>
 	</div>
 	<!---------------------------- register product form ---------------------------->
