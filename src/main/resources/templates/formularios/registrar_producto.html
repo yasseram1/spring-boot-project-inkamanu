@@ -153,7 +153,8 @@
 
 				<div class="input">
 					<span>Grado de Alcohol</span>
-					<input class="errors" type="number" placeholder="Ejemplo: 5%" min="1">
+					<input class="errors" type="number" placeholder="Ejemplo: 5%" step="0.01" min="0" th:field="*{gradoAlcohol}">
+					<div class="errors" th:errors="*{gradoAlcohol}"></div>
 				</div>
 			</div>
 
@@ -166,32 +167,32 @@
 
 				<div class="input">
 					<span>Tipo de Cerveza</span>
-					<select>
-						<option value="" disabled selected>Seleccione una opción</option>
-						<option value="1">Lager</option>
-						<option value="2">Ale</option>
-						<option value="3">Cerveza de Trigo(Wheat Beer)</option>
-						<option value="4">Cerveza de Abadia(Abbey Beer)</option>
-						<option value="5">Cerveza Lambic</option>
-						<option value="6">Cerveza de Especias</option>
-						<option value="7">Cerveza de Temporada</option>
-						<option value="8">Cerveza Artesanal (Craft Beer)</option>
-						<option value="9">Sin Alcohol o Baja en Alcohol</option>
-						<option value="10">Sin Gluten</option>
-						<option value="11">Híbrida o Experimental</option>
+					<select th:field="*{tipoCerveza}">
+						<option value="Lager">Lager</option>
+						<option value="Ale">Ale</option>
+						<option value="Cerveza de Trigo(Wheat Beer)">Cerveza de Trigo(Wheat Beer)</option>
+						<option value="Cerveza de Abadia(Abbey Beer)">Cerveza de Abadia(Abbey Beer)</option>
+						<option value="Cerveza Lambic">Cerveza Lambic</option>
+						<option value="Cerveza de Especias">Cerveza de Especias</option>
+						<option value="Cerveza de Temporada">Cerveza de Temporada</option>
+						<option value="Cerveza Artesanal (Craft Beer)">Cerveza Artesanal (Craft Beer)</option>
+						<option value="Sin Alcohol o Baja en Alcohol">"Sin Alcohol o Baja en Alcohol</option>
+						<option value="Sin Gluten">Sin Gluten</option>
+						<option value="Híbrida o Experimental">Híbrida o Experimental</option>
 					</select>
+					<div class="errors" th:errors="*{tipoCerveza}"></div>
 				</div>
 			</div>
 
 			<div class="inputBox">
 				<div class="input">
 					<span>Porcentaje de descuento</span>
-					<select>
-						<option value="" disabled selected>Seleccione una opción</option>
+					<select th:field="*{porcentajeDescuento}">
+						<option value="0" selected>Sin descuento</option>
 						<option value="5">5%</option>
 						<option value="10">10%</option>
-						<option value="No">No existe descuento en este producto</option>
 					</select>
+					<div class="errors" th:errors="*{porcentajeDescuento}"></div>
 				</div>
 
 				<div class="input">

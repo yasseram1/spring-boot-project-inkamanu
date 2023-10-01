@@ -21,6 +21,15 @@ public class ProductoDTO {
     @NotNull(message = "El stock es obligatorio")
     private int stock;
 
+    @NotNull(message = "El grado de Alcohol es obligatorio")
+    private Double gradoAlcohol;
+
+    @NotBlank(message = "El tipo de cerveza es obligatorio")
+    private String tipoCerveza;
+
+    @NotNull(message = "El porcentaje de descuento es obligatorio")
+    private Double porcentajeDescuento;
+
     public String getNombre() {
         return this.nombre;
     }
@@ -59,6 +68,30 @@ public class ProductoDTO {
 
     public void setStock(int stock) {
         this.stock = stock;
+    }
+
+    public Double getGradoAlcohol() {
+        return this.gradoAlcohol;
+    }
+
+    public void setGradoAlcohol(Double gradoAlcohol) {
+        this.gradoAlcohol = gradoAlcohol;
+    }
+
+    public String getTipoCerveza() {
+        return this.tipoCerveza;
+    }
+
+    public void setTipoCerveza(String tipoCerveza) {
+        this.tipoCerveza = tipoCerveza;
+    }
+
+    public Double getPorcentajeDescuento() {
+        return this.porcentajeDescuento;
+    }
+
+    public void setPorcentajeDescuento(Double porcentajeDescuento) {
+        this.porcentajeDescuento = porcentajeDescuento;
     }
 
 }

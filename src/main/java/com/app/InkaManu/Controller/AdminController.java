@@ -101,6 +101,9 @@ public class AdminController {
             }
         }
 
+        p.setGradoAlcohol(productoDTO.getGradoAlcohol());
+        p.setTipoCerveza(productoDTO.getTipoCerveza());
+        p.setPorcentajeDescuento(productoDTO.getPorcentajeDescuento());
         p.setNombre(productoDTO.getNombre());
         p.setPrecio(productoDTO.getPrecio());
         p.setStock(productoDTO.getStock());
