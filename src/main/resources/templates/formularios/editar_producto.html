@@ -6,11 +6,12 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" th:href="@{/ImagenesPrueba/sweet_stout.jpeg}" /> <!--  PARA CAMBIAR EL ICONO DE LA EMPRESA -->
-	<title>REGISTRO DE CLIENTES</title>
+	<title>REGISTRO DE PRODUCTOS</title>
 	<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
-
+	<link rel="stylesheet" href="/css/registrar_producto.css">
+	<link rel="stylesheet" href="/css/toast.css">
+	<link rel="stylesheet" href="/css/volver.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-	<link rel="stylesheet" href="/css/registrar_cliente.css">
 </head>
 
 <body>
@@ -122,79 +123,89 @@
 	</div>
 	<!---------------------------- register form ---------------------------->
 
-	<!---------------------------- register clientes form  ---------------------------->
-
-	<div class="register-cliente-form-container">
-		<form action="">
-			<h3>REGISTRO DE CLIENTES</h3>
+	<!---------------------------- register product form  ---------------------------->
+	<div class="register-product-form-container">
+		<form th:action="@{/inkamanu/admin/guardarProductoEditado}" th:object="${productoDTO}" th:method="post"
+			enctype="multipart/form-data">
+			<div class="volverAtras"><a th:href="@{/inkamanu/admin/listaProductos}"><i
+						class="fa-sharp fa-solid fa-arrow-left" style="color: #000000;"></i> Volver</a></div>
+			<h3>REGISTRO DE PRODUCTOS</h3>
+			<input type="hidden" th:field="*{id}">
 			<div class="inputBox">
 				<div class="input">
-					<span>Nombres</span>
-					<input type="text" placeholder="Introduzca su nombre">
+					<span>Nombre del producto</span>
+					<input type="text" placeholder="Ingrese el nombre del producto" th:field="*{nombre}">
+					<div class="errors" th:errors="*{nombre}"></div>
 				</div>
 
 				<div class="input">
-					<span>Apellido Paterno</span>
-					<input type="text" placeholder="Introduzca su apellido">
+					<span>Descripción del producto</span>
+					<input type="text" placeholder="Introduzca su descripción" th:field="*{descripcion}">
+					<div class="errors" th:errors="*{descripcion}"></div>
 				</div>
 			</div>
 
 			<div class="inputBox">
 				<div class="input">
-					<span>Apellido Materno</span>
-					<input type="text" placeholder="Introduzca su apellido">
+					<span>Cantidad en Stock</span>
+					<input type="number" placeholder="Introduzca la cantidad" th:field="*{stock}">
+					<div class="errors" th:errors="*{stock}"></div>
 				</div>
 
 				<div class="input">
-					<span>Número de DNI</span>
-					<input type="number" placeholder="Ejemplo: 12345678" min="1" minlength="8">
-				</div>
-			</div>
-
-			<div class="inputBox">
-				<div class="input">
-					<span>Email</span>
-					<input type="email" placeholder="jesus_soria@usmp.pe">
-				</div>
-
-				<div class="input">
-					<span>Celular</span>
-					<input type="number" placeholder="Ejemplo: 927572267">
+					<span>Grado de Alcohol</span>
+					<input class="errors" type="number" placeholder="Ejemplo: 5%" step="0.01" min="0"
+						th:field="*{gradoAlcohol}">
+					<div class="errors" th:errors="*{gradoAlcohol}"></div>
 				</div>
 			</div>
 
 			<div class="inputBox">
 				<div class="input">
-					<span>Genero</span>
-					<select>
-						<option value="" disabled selected>Seleccione su género</option>
-						<option value="masculino">Masculino</option>
-						<option value="femenino">Femenino</option>
+					<span>Precio del Producto</span>
+					<input type="number" placeholder="Ejemplo: S/.50 soles" step="0.01" min="0" th:field="*{precio}">
+					<div class="errors" th:errors="*{precio}"></div>
+				</div>
+
+				<div class="input">
+					<span>Tipo de Cerveza</span>
+					<select th:field="*{tipoCerveza}">
+						<option value="Lager">Lager</option>
+						<option value="Ale">Ale</option>
+						<option value="Cerveza de Trigo(Wheat Beer)">Cerveza de Trigo(Wheat Beer)</option>
+						<option value="Cerveza de Abadia(Abbey Beer)">Cerveza de Abadia(Abbey Beer)</option>
+						<option value="Cerveza Lambic">Cerveza Lambic</option>
+						<option value="Cerveza de Especias">Cerveza de Especias</option>
+						<option value="Cerveza de Temporada">Cerveza de Temporada</option>
+						<option value="Cerveza Artesanal (Craft Beer)">Cerveza Artesanal (Craft Beer)</option>
+						<option value="Sin Alcohol o Baja en Alcohol">"Sin Alcohol o Baja en Alcohol</option>
+						<option value="Sin Gluten">Sin Gluten</option>
+						<option value="Híbrida o Experimental">Híbrida o Experimental</option>
 					</select>
-				</div>
-
-				<div class="input">
-					<span>Fecha de Nacimiento</span>
-					<input type="datetime-local">
+					<div class="errors" th:errors="*{tipoCerveza}"></div>
 				</div>
 			</div>
 
 			<div class="inputBox">
 				<div class="input">
-					<span>Contraseña</span>
-					<input type="password" placeholder="******">
+					<span>Porcentaje de descuento</span>
+					<select th:field="*{porcentajeDescuento}">
+						<option value="0" selected>Sin descuento</option>
+						<option value="5">5%</option>
+						<option value="10">10%</option>
+					</select>
+					<div class="errors" th:errors="*{porcentajeDescuento}"></div>
 				</div>
 
 				<div class="input">
-					<span>Confirmar Contraseña</span>
-					<input type="password" placeholder="******">
+					<span>Imagen del Producto</span>
+					<input type="file" th:field="*{imagen}">
 				</div>
 			</div>
-			<input type="submit" value="Registrar Cliente" class="btn">
+			<input type="submit" value="Registrar Producto" class="btn">
 		</form>
 	</div>
-
-	<!---------------------------- register clientes form ---------------------------->
+	<!---------------------------- register product form ---------------------------->
 	<!---------------------------- footer section stars  ---------------------------->
 
 	<section class="footer">
@@ -217,13 +228,9 @@
 
 			<div class="box">
 				<h3>Redes</h3>
-				<a href="https://www.facebook.com/fia.usmp"> <i class="fab fa-facebook-f"></i> facebook </a>
-				<a href="https://api.whatsapp.com/send?phone=927572267" target="_blank"><i
+				<a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+				<a href="https://api.whatsapp.com/send?phone=XXXXXXXXXXX" target="_blank"><i
 						class="fab fa-whatsapp"></i> WhatsApp</a>
-				<br><br>
-				<h3>Legal</h3>
-				<a href="#"> <i class="fa fa-gavel"></i> Términos y Condiciones </a>
-				<a href="#"> <i class="fa fa-lock"></i> Politicas de privacidad </a>
 			</div>
 
 			<div class="box">
@@ -240,7 +247,20 @@
 		<div class="credit"> @Copyright - Todos los derechos reservados! </div>
 	</section>
 
+
+
 	<!---------------------------- footer section ends  ---------------------------->
+
+	<!-- <div class="toast" id="toast">Producto agregado<button class="btn-cerrar" id="btn-cerrar"><i
+				class="fa-solid fa-xmark fa-xl" style="margin-left: 10px;"></i></button>
+		<div class="linea"></div>
+	</div> -->
+
+	<div th:if="${success != null}" class="toast" id="toast"><span th:text="${success}"></span><button
+			class="btn-cerrar" id="btn-cerrar"><i class="fa-solid fa-xmark fa-xl"
+				style="margin-left: 10px;"></i></button>
+		<div class="linea"></div>
+	</div>
 
 	<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
@@ -331,7 +351,8 @@
 			},
 		});
 	</script>
-
+	<script src="/js/toast.js"></script>
+	<script src="https://kit.fontawesome.com/c37024d023.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

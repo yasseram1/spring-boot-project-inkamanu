@@ -1,0 +1,59 @@
+:root {
+    --my-blue: #0074E4;
+    --light-my-blue: #6FA6FF;
+    /* Aquí defines el tono más claro */
+    --yellow: #40E0D0;
+    --amarillo: #f9d806;
+    --light-amarillo: #ffee80;
+    --light-yellow: hsl(177, 72%, 70%);
+    --black: #130f40;
+    --light-color: #666;
+    --border: .1rem solid rgba(0, 0, 0, .1);
+    --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+}
+
+.toast {
+    position: sticky;
+    bottom: 5%;
+    margin: 0 auto;
+    width: 250px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 15px;
+    padding: 10px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    line-height: 30px;
+}
+
+.linea {
+    width: 0;
+    animation: lineaCarga 5s normal;
+    height: 100%;
+    background-color: rgb(0, 255, 13);
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    border-radius: 0 0 10px 10px;
+    height: 5px;
+}
+
+.btn-cerrar {
+    cursor: pointer;
+}
+
+.btn-cerrar i:hover {
+    color: #40E0D0;
+}
+
+@keyframes lineaCarga {
+
+    0% {
+        width: 0;
+    }
+
+
+    100% {
+        width: 100%;
+    }
+}

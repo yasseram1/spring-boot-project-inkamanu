@@ -22,9 +22,11 @@ public class Producto {
     private String nombre;
 
     @NotNull
+    @Column(columnDefinition = "CLOB")
     private String descripcion;
 
     @NotNull
+    @Column(columnDefinition = "CLOB")
     private String imagen;
 
     @NotNull
@@ -39,6 +41,15 @@ public class Producto {
 
     @Column(columnDefinition = "TIMESTAMP")
     private LocalDateTime fechaActualizacion;
+
+    @NotNull
+    private Double gradoAlcohol;
+
+    @NotNull
+    private String tipoCerveza;
+
+    @NotNull
+    private Double porcentajeDescuento;
 
     public int getId() {
         return this.id;
@@ -104,9 +115,28 @@ public class Producto {
         this.fechaActualizacion = fechaActualizacion;
     }
 
-    public void agregarFechaCreacion(){
+    public Double getGradoAlcohol() {
+        return this.gradoAlcohol;
+    }
 
-        
+    public void setGradoAlcohol(Double gradoAlcohol) {
+        this.gradoAlcohol = gradoAlcohol;
+    }
+
+    public String getTipoCerveza() {
+        return this.tipoCerveza;
+    }
+
+    public void setTipoCerveza(String tipoCerveza) {
+        this.tipoCerveza = tipoCerveza;
+    }
+
+    public Double getPorcentajeDescuento() {
+        return this.porcentajeDescuento;
+    }
+
+    public void setPorcentajeDescuento(Double porcentajeDescuento) {
+        this.porcentajeDescuento = porcentajeDescuento;
     }
 
 }
