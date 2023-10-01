@@ -929,6 +929,7 @@
 		}
 
 		.table-product-form-container table {
+			width: 100%;
 			background-color: white;
 			text-align: center;
 			border-collapse: collapse;
@@ -969,7 +970,7 @@
 			padding: 10px;
 
 			/* Agregar margen superior para separar del encabezado */
-			max-width: 112rem;
+			max-width: 100%;
 		}
 
 		.listar_product .table-product-form-container .Buscador span {
@@ -977,7 +978,7 @@
 			margin: 10px;
 			font-size: 16px;
 			color: var(--black);
-		
+
 			border: none;
 		}
 
@@ -1175,7 +1176,7 @@
 				<span>Buscar Producto</span>
 				<input type="text" placeholder="Ejemplo: Pilsen....">
 				<input type="submit" value="Buscar Producto" class="btnBuscar">
-				<input type="submit" value="Agregar Producto" class="btnAgregar">
+				<a th:href="@{formularioCrearProducto}" class="btnAgregar">Agregar Producto</a>
 				<input type="submit" value="Exportar en PDF" class="btnPDF">
 				<input type="submit" value="Exportar en Excel" class="btnExcel">
 			</div>
@@ -1187,30 +1188,28 @@
 						<th>Imagen</th>
 						<th>Nombre</th>
 						<th>Descripción</th>
-						<th>Tipo</th>
-						<th>Grado de alcohol</th>
 						<th>Precio</th>
 						<th>Stock</th>
 						<th>Fecha de registro</th>
 						<th>Fecha de actualización</th>
 						<th>Editar</th>
 						<th>Eliminar</th>
+						<th>Detalle</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
+					<tr th:each="producto : ${listaProductos}">
+						<td th:text="${producto.id}"></td>
+						<td><img th:src="${producto.imagen}" alt="Imagen del producto" width="150px" height="150px"/></td>
+						<td th:text="${producto.nombre}"></td>
+						<td th:text="${producto.descripcion}"></td>
+						<td th:text="${producto.precio}"></td>
+						<td th:text="${producto.stock}"></td>
+						<td th:text="${producto.fechaCreacion}"></td>
+						<td th:text="${productoActualizacion == null ? 'No se ha actualizado' : producto.fechaActualizacion}"></td>
 						<td><a></a></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
 						<td><a></a></td>
 						<td><a></a></td>
-						<td><button></button></td>
 					</tr>
 				</tbody>
 			</table>

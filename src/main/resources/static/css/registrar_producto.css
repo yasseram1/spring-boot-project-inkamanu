@@ -1,0 +1,901 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+:root {
+    --my-blue: #0074E4;
+    --light-my-blue: #6FA6FF;
+    /* Aquí defines el tono más claro */
+    --yellow: #40E0D0;
+    --amarillo: #f9d806;
+    --light-amarillo: #ffee80;
+    --light-yellow: hsl(177, 72%, 70%);
+    --black: #130f40;
+    --light-color: #666;
+    --border: .1rem solid rgba(0, 0, 0, .1);
+    --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 7rem;
+    scroll-behavior: smooth;
+}
+
+section {
+    padding: 2rem 6%;
+}
+
+.heading {
+    text-align: center;
+    padding-bottom: 2rem;
+    font-size: 4.5rem;
+    color: var(--black);
+}
+
+.heading span {
+    position: relative;
+    z-index: 0;
+}
+
+.heading span::before {
+    content: '';
+    position: absolute;
+    bottom: 1rem;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    background: var(--yellow);
+    clip-path: polygon(0 90%, 100% 80%, 100% 100%, 0% 100%);
+    /* CON ESTO PONGO LA LINEA AMARILLA ABAJO DE LA PALABRA Vehicles de color amarillo */
+}
+
+/* hasta aca arriba */
+.btn {
+    display: inline-block;
+    margin-top: 1rem;
+    border-radius: .5rem;
+    background: var(--light-yellow);
+    color: var(--black);
+    font-weight: 500;
+    font-size: 1.7rem;
+    cursor: pointer;
+    padding: .8rem 3rem;
+}
+
+.btn:hover {
+    background: var(--yellow);
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem 9%;
+}
+
+.header .logo {
+    font-size: 2.5rem;
+    color: var(--black);
+    font-weight: bolder;
+}
+
+.header .logo span {
+    color: var(--yellow);
+}
+
+.header .navbar a {
+    font-size: 1.7rem;
+    margin: 0 1rem;
+    color: var(--black);
+}
+
+.header .navbar a:hover {
+    color: var(--yellow);
+}
+
+.header .btn {
+    margin-top: 0;
+}
+
+.header #login-btn i {
+    font-size: 2.5rem;
+    color: var(--light-color);
+    cursor: pointer;
+    display: none;
+}
+
+#menu-btn {
+    font-size: 2.5rem;
+    color: var(--light-color);
+    cursor: pointer;
+    display: none;
+}
+
+.header.active {
+    box-shadow: var(--box-shadow);
+    padding: 2rem 9%;
+}
+
+.register-form-container {
+    position: fixed;
+    top: -105%;
+    left: 0;
+    z-index: 1000;
+    height: 100%;
+    width: 100%;
+    background: rgba(255, 255, 255, .9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+}
+
+.register-form-container.active {
+    top: 0;
+    opacity: 1;
+    /* SI ES 1 SE MUESTRA EL FORMULARIO Y SI ES CERO NO SE MUESTRA  */
+}
+
+.register-form-container form {
+    margin-top: 100px;
+    text-align: center;
+    max-width: 90rem;
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    border: .1rem solid rgba(0, 0, 0, .2);
+    background: #fff;
+    padding: 1.5rem;
+    margin: 0 auto;
+    overflow-y: auto;
+    /* Agregar desplazamiento vertical cuando el contenido excede la altura */
+    height: 90vh;
+    width: 115vh;
+    /* Altura máxima del formulario, ajusta según sea necesario */
+}
+
+.register-form-container form .inputBox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.register-form-container form h3 {
+    color: var(--black);
+    font-size: 2.5rem;
+    padding-bottom: 1rem 0;
+    text-transform: uppercase;
+}
+
+.register-form-container form .btn {
+    display: block;
+    width: 100%;
+    margin: .5rem 0;
+    background-color: var(--yellow);
+    /* Cambia el color de fondo */
+    color: var(--black);
+    /* Cambia el color del texto */
+    border: none;
+    border-radius: .5rem;
+    padding: 1rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.register-form-container form .btn:hover {
+    background-color: var(--amarillo);
+    /* Cambia el color de fondo al pasar el mouse */
+}
+
+.register-form-container form .inputBox .input {
+    width: 49%;
+}
+
+.register-form-container form .inputBox .input span {
+    display: block;
+    padding: .5rem 0;
+    font-size: 1.5rem;
+    color: var(--light-color);
+}
+
+.register-form-container form .inputBox .input input {
+    background: #eee;
+    border-radius: .5rem;
+    padding: 1rem;
+    font-size: 1.6rem;
+    color: var(--black);
+    text-transform: none;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.register-form-container form .inputBox .input input:focus {
+    border: .1rem solid var(--yellow);
+}
+
+.register-form-container form .inputBox .input select {
+    background: #eee;
+    border-radius: .5rem;
+    padding: 1rem;
+    font-size: 1.6rem;
+    color: var(--black);
+    text-transform: none;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.register-form-container form .inputBox .input select:focus {
+    border: .1rem solid var(--yellow);
+}
+
+.register-form-container #close-register-form {
+    position: absolute;
+    top: 1.5rem;
+    right: 2.5rem;
+    font-size: 5rem;
+    color: var(--black);
+    cursor: pointer;
+}
+
+.register-form-container form p {
+    padding: 1rem 0;
+    font-size: 1.5rem;
+    color: var(--light-color);
+}
+
+.register-form-container form p a {
+    color: var(--my-blue);
+    text-decoration: underline;
+}
+
+
+/* ESTO DE ACA ABAJO  */
+.login-form-container {
+    position: fixed;
+    top: -105%;
+    left: 0;
+    z-index: 1000;
+    height: 100%;
+    width: 100%;
+    background: rgba(255, 255, 255, .9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+}
+
+
+
+/* ------- ESTO ES PARA ACTIVAR Y QUE FUNCIONE EL BOTON DEL LOGIN AL DARLE CLICK Y SE MUESTRE EL FORMULARIO DEL LOGIN  */
+.login-form-container.active {
+    top: 0;
+    opacity: 1;
+    /* SI ES 1 SE MUESTRA EL FORMULARIO Y SI ES CERO NO SE MUESTRA  */
+}
+
+.login-form-container form {
+    padding: 2rem;
+    margin: 2rem;
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    background: #fff;
+    border: var(--border);
+    text-align: center;
+    width: 40rem;
+}
+
+.login-form-container form .buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.login-form-container form .btn {
+    display: block;
+    width: 100%;
+    margin: .5rem 0;
+}
+
+.login-form-container form .btn:hover {
+    background-color: var(--amarillo);
+    /* Cambia el color de fondo al pasar el mouse */
+}
+
+.login-form-container form h3 {
+    color: var(--black);
+    font-size: 2.5rem;
+    padding-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.login-form-container form .box {
+    margin: .7rem 0;
+    width: 100%;
+    text-transform: none;
+    color: var(--black);
+    font-size: 1.6rem;
+    padding: 1rem 1.2rem;
+    border: var(--border);
+    border-radius: .5rem;
+}
+
+.login-form-container form p {
+    padding: 1rem 0;
+    font-size: 1.5rem;
+    color: var(--light-color);
+}
+
+.login-form-container form p a {
+    color: var(--my-blue);
+    text-decoration: underline;
+}
+
+.login-form-container #close-login-form {
+    position: absolute;
+    top: 1.5rem;
+    right: 2.5rem;
+    font-size: 5rem;
+    color: var(--black);
+    cursor: pointer;
+}
+
+.login-form-container input:focus {
+    border: .1rem solid var(--yellow);
+}
+
+.home {
+    padding-top: 10rem;
+    text-align: center;
+}
+
+.home h1 {
+    font-size: 4vw;
+    text-transform: uppercase;
+    color: var(--black);
+}
+
+/* PUESTO HOY 13/09/2023 */
+/* Estilo para el carrusel */
+/* Imagenes del carrusel */
+
+.content-all {
+    width: 210px;
+    margin: 200px auto;
+    perspective: 800px;
+    position: relative;
+    margin-top: 20px;
+}
+
+.content-carrousel {
+    width: 100%;
+    position: absolute;
+    animation: rotar 10s infinite linear;
+    transform-style: preserve-3d;
+}
+
+.content-carrousel:hover {
+    animation-play-state: paused;
+    cursor: pointer;
+}
+
+.content-carrousel figure {
+    width: 100%;
+    height: 120px;
+    overflow: hidden;
+    position: absolute;
+    box-shadow: 0px 0px 20px 0px black;
+    transition: all 300ms;
+
+}
+
+.content-carrousel figure:hover {
+    box-shadow: 0px 0px 0px 0px black;
+    transition: all 300ms;
+}
+
+.content-carrousel figure:nth-child(1) {
+    transform: rotateY(0deg) translateZ(300px);
+}
+
+.content-carrousel figure:nth-child(2) {
+    transform: rotateY(40deg) translateZ(300px);
+}
+
+.content-carrousel figure:nth-child(3) {
+    transform: rotateY(80deg) translateZ(300px);
+}
+
+.content-carrousel figure:nth-child(4) {
+    transform: rotateY(120deg) translateZ(300px);
+}
+
+.content-carrousel figure:nth-child(5) {
+    transform: rotateY(160deg) translateZ(300px);
+}
+
+.content-carrousel figure:nth-child(6) {
+    transform: rotateY(200deg) translateZ(300px);
+}
+
+.content-carrousel figure:nth-child(7) {
+    transform: rotateY(240deg) translateZ(300px);
+}
+
+.content-carrousel figure:nth-child(8) {
+    transform: rotateY(280deg) translateZ(300px);
+}
+
+.content-carrousel figure:nth-child(9) {
+    transform: rotateY(320deg) translateZ(300px);
+}
+
+.content-carrousel figure:nth-child(10) {
+    transform: rotateY(360deg) translateZ(300px);
+}
+
+.content-carrousel img {
+    width: 100%;
+    transition: all 300ms;
+}
+
+.content-carrousel img:hover {
+    transform: scale(1.2);
+    transition: all 300ms;
+}
+
+@keyframes rotar {
+    from {
+        transform: rotateY(0deg);
+    }
+
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+/* HASTA AQUI */
+
+/* CSS DE ICONS EN EL MINUTO 36:40 */
+.icons-container {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1.5rem;
+    background: #eee;
+}
+
+.icons-container .icons {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    background: #fff;
+    box-shadow: var(--box-shadow);
+    border-radius: .5rem;
+}
+
+.icons-container .icons i {
+    height: 6rem;
+    width: 12rem;
+    line-height: 6rem;
+    font-size: 2.5rem;
+    border-radius: 50%;
+    background: #eee;
+    color: var(--black);
+    text-align: center;
+}
+
+.icons-container .icons .content h3 {
+    color: var(--yellow);
+    font-size: 2.5rem;
+}
+
+.icons-container .icons .content p {
+    color: var(--light-color);
+    font-size: 1.5rem;
+}
+
+.icons-container .icons:hover {
+    background: var(--black);
+}
+
+.icons-container .icons:hover i {
+    background: var(--yellow);
+}
+
+.icons-container .icons:hover .content h3 {
+    color: #fff;
+}
+
+.icons-container .icons:hover .content p {
+    color: #eee;
+}
+
+/* codigo  */
+.swiper-pagination-bullet-active {
+    background: var(--yellow);
+}
+
+#mision {
+    padding: 1rem;
+}
+
+#descripcion {
+    padding: 1rem;
+}
+
+.featured .featured-slider {
+    padding: 1rem;
+    padding-bottom: 4rem;
+}
+
+.featured .featured-slider .box {
+    text-align: center;
+    padding: 2rem;
+    box-shadow: var(--box-shadow);
+    border: var(--border);
+    border-radius: .5rem;
+}
+
+.featured .featured-slider .box img {
+    height: 13rem;
+    /* PONIENDO EL HEIGH ASI TODOS LOS CONTENEDORES SON IGUALES DEL MISMO TAMAÑO SI PONGO EL CODIOG DE ABAJO LOS CONTENEDORES CAMBIAN DE TAMAÑO */
+    /*width: 100%;
+		padding: 2rem;*/
+}
+
+.featured .featured-slider .box:hover img {
+    transform: scale(.9);
+    /* CON ESTE CODIGO HAGO QUE LA IMAGEN AL PONER EL MOUSE EN EL CONTENEDOR LA IMAGEN SE META PARA ADENTRO COMO SI LA ESTUVIERA EMPUJANDO EN EL MINUTO 01:05:12 DEL VIDEO */
+}
+
+.featured .featured-slider .box h3 {
+    font-size: 2.2rem;
+    color: var(--black);
+}
+
+.featured .featured-slider .box .stars {
+    padding: 1rem 0;
+}
+
+.featured .featured-slider .box .stars i {
+    font-size: 1.7rem;
+    color: var(--yellow);
+}
+
+.featured .featured-slider .box .price {
+    font-size: 2.5rem;
+    color: var(--black);
+}
+
+/* codigo hasta aca arriba */
+
+/* contact section SU CODIGO DE CSS  */
+
+.contact .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.contact .row .map {
+    flex: 1 1 42rem;
+    width: 100%;
+    padding: 2rem;
+    border: var(--border);
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+}
+
+.contact .row form {
+    flex: 1 1 42rem;
+    padding: 2rem;
+    border: var(--border);
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+}
+
+.contact .row form h3 {
+    font-size: 3rem;
+    color: var(--black);
+}
+
+
+.contact .row form .box {
+    margin: .7rem 0;
+    width: 100%;
+    border: var(--border);
+    padding: 1rem;
+    font-size: 1.6rem;
+    color: var(--black);
+    text-transform: none;
+    border-radius: .5rem;
+}
+
+.contact .row form textarea {
+    height: 15rem;
+    resize: none;
+}
+
+/* footer section  */
+
+.footer {
+    background: var(--light-yellow);
+}
+
+.footer .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1.5rem;
+}
+
+.footer .box-container .box h3 {
+    color: var(--black);
+    font-size: 2.2rem;
+    padding: 1rem 0;
+}
+
+.footer .box-container .box a {
+    color: var(--light-color);
+    font-size: 1.4rem;
+    display: block;
+    padding: 1rem 0;
+}
+
+.footer .box-container .box a i {
+    padding-right: .5rem;
+    color: var(--black);
+}
+
+.footer .box-container .box a:hover i {
+    padding-right: 2rem;
+    /* este codigo hace que las palabras en el footer se muevan para la izquierda o derecha la cosa es que se mueve */
+}
+
+.footer .credit {
+    text-align: center;
+    border-top: var(--border);
+    padding: 1rem;
+    padding-top: 2.5rem;
+    margin-top: 2rem;
+    font-size: 2rem;
+}
+
+/*------------------ media queries ---------------------- */
+
+@media (max-width:991px) {
+    html {
+        font-size: 55%;
+    }
+
+    .header {
+        padding: 2rem;
+    }
+
+
+    .header.active {
+        padding: 2rem;
+    }
+
+
+    section {
+        padding: 2rem;
+    }
+}
+
+@media (max-width:768px) {
+    #menu-btn {
+        display: block;
+    }
+
+    #menu-btn.fa-times {
+        transform: rotate(180deg);
+    }
+
+    .header #login-btn i {
+        display: block;
+    }
+
+    .header #login-btn .btn {
+        display: none;
+    }
+
+    .header .navbar {
+        position: absolute;
+        top: 99%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-top: var(--border);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    /* con este codigo hago que se muestre el navbar activandolo */
+    .header .navbar.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    .header .navbar a {
+        display: block;
+        margin: 2rem;
+        font-size: 2rem;
+    }
+}
+
+@media (max-width:450px) {
+    html {
+        font-size: 50%;
+    }
+
+    .heading {
+        font-size: 3rem;
+    }
+
+    .register-form-container form .inputBox .input {
+        width: 100%;
+    }
+
+    /* ese codigo es hasta aca arriba */
+}
+
+
+
+.header .iconosxd div {
+    height: 4.5rem;
+    width: 4.5rem;
+    line-height: 4.5rem;
+    border-radius: .5rem;
+    background: var(--light-yellow);
+    color: var(--black);
+    font-size: 2rem;
+    margin-left: .3rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+.header .iconosxd div:hover {
+    background: var(--yellow);
+    color: #fff;
+}
+
+
+
+/* registro de productos  */
+
+body {
+    background: #666;
+}
+
+.register-product-form-container {
+    height: 100%;
+    width: 100%;
+    background: rgba(255, 255, 255, .9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding-top: 130px;
+    padding-bottom: 50px;
+}
+
+.register-product-form-container.active {
+    top: 0;
+}
+
+.register-product-form-container form {
+    margin-top: 100px;
+    text-align: center;
+    max-width: 1000rem;
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    border: .1rem solid rgba(0, 0, 0, .2);
+    background: #fff;
+    padding: 1.5rem;
+    margin: 0 auto;
+    overflow-y: auto;
+    /* Agregar desplazamiento vertical cuando el contenido excede la altura */
+    height: 75vh;
+    width: 130vh;
+    /* Altura máxima del formulario, ajusta según sea necesario */
+}
+
+.register-product-form-container form .inputBox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.register-product-form-container form h3 {
+    color: var(--black);
+    font-size: 2.5rem;
+    padding-bottom: 1rem 0;
+    text-transform: uppercase;
+}
+
+.register-product-form-container form .btn {
+    display: block;
+    width: 100%;
+    margin: .5rem 0;
+    background-color: var(--yellow);
+    /* Cambia el color de fondo */
+    color: var(--black);
+    /* Cambia el color del texto */
+    border: none;
+    border-radius: .5rem;
+    padding: 1rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.register-product-form-container form .btn:hover {
+    background-color: var(--amarillo);
+    /* Cambia el color de fondo al pasar el mouse */
+}
+
+.register-product-form-container form .inputBox .input {
+    width: 49%;
+}
+
+.register-product-form-container form .inputBox .input span {
+    display: block;
+    padding: .5rem 0;
+    font-size: 1.5rem;
+    color: var(--light-color);
+}
+
+.register-product-form-container form .inputBox .input input {
+    background: #eee;
+    border-radius: .5rem;
+    padding: 1rem;
+    font-size: 1.6rem;
+    color: var(--black);
+    text-transform: none;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.register-product-form-container form .inputBox .input input:focus {
+    border: .1rem solid var(--yellow);
+}
+
+.register-product-form-container form .inputBox .input select {
+    background: #eee;
+    border-radius: .5rem;
+    padding: 1rem;
+    font-size: 1.6rem;
+    color: var(--black);
+    text-transform: none;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.register-product-form-container form .inputBox .input select:focus {
+    border: .1rem solid var(--yellow);
+}
+
+.errors {
+    color: red;
+}
