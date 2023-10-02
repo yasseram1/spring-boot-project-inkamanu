@@ -8,6 +8,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -111,10 +113,19 @@ public class AdminController {
         return "redirect:/inkamanu/admin/formularioCrearProducto";
     }
 
-    @GetMapping("/admin/listaProductos")
-    public String verListaDeProductos(Model model) {
+    // @GetMapping("/admin/listaProductos")
+    // public String verListaDeProductos(Model model) {
 
-        List<Producto> listaProductos = productoService.getAllProducts();
+    // List<Producto> listaProductos = productoService.getAllProducts();
+    // model.addAttribute("listaProductos", listaProductos);
+
+    // return "listar_producto";
+    // }
+
+    @GetMapping("/admin/listaProductos")
+    public String verListaDeProductosPaginada(@RequestParam(name = "page", defaultValue = "0") int page, Model model) {
+
+        Page<Producto> listaProductos = productoService.getAllProductsPage(page, 2);
         model.addAttribute("listaProductos", listaProductos);
 
         return "listar_producto";

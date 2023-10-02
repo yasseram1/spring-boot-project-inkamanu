@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -100,6 +103,13 @@ public class ProductoServiceImpl implements ProductoService {
     @Override
     public void deleteProduct(int productoId) {
         productoRepository.deleteById(productoId);
+    }
+
+    @Override
+    public Page<Producto> getAllProductsPage(int page, int size) {
+
+        PageRequest pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.ASC, "nombre"));
+        return productoRepository.findAll(pageable);
     }
 
 }

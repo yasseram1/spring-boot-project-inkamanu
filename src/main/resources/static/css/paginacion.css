@@ -1,0 +1,28 @@
+.disabled {
+    display: none;
+}
+
+.contenedor-paginacion {
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor-paginacion ul {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.contenedor-paginacion ul li {
+    padding: 10px;
+    list-style: none;
+    font-size: 15px;
+}
+
+.contenedor-paginacion ul li a {
+    color: black;
+    font-weight: bold;
+}
+
+.contenedor-paginacion ul li a:hover {
+    color: #0074E4;
+}
