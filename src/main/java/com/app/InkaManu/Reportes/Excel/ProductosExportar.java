@@ -50,7 +50,7 @@ public class ProductosExportar extends AbstractXlsView{
             filaData.createCell(3).setCellValue(producto.getPrecio());
             filaData.createCell(4).setCellValue(producto.getStock());
             filaData.createCell(5).setCellValue(producto.getFechaCreacion());
-            filaData.createCell(6).setCellValue(producto.getFechaCreacion());
+            filaData.createCell(6).setCellValue(producto.getFechaActualizacion());
 
             numFila++;
         }

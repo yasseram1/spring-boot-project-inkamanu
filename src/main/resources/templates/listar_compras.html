@@ -1180,8 +1180,8 @@
 				<span>Buscar Compra</span>
 				<input type="text" placeholder="Ingrese el codigo....">
 				<input type="submit" value="Buscar Compra" class="btnBuscar">
-				<input type="submit" value="Exportar en PDF" class="btnPDF">
-				<input type="submit" value="Exportar en Excel" class="btnExcel">
+				<input th:href="@{/prueba27/(format=pdf)}" type="submit" value="Exportar en PDF" class="btnPDF" target="_blank">
+				<input th:href="@{/prueba27/(format=xlsx)}" type="submit" value="Exportar en Excel" class="btnExcel">
 			</div>
 			<br>
 			<table>

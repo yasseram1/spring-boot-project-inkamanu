@@ -18,14 +18,14 @@ import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
 
-@Component("/prueba27")
+@Component("/prueba28")
 public class ProductosExporPDF extends AbstractPdfView{
 
     @Override
     protected void buildPdfDocument(Map<String, Object> model, Document document, PdfWriter writer,
             HttpServletRequest request, HttpServletResponse response) throws Exception {
         
-        List<Producto> listaProducto = (List<Producto>) model.get("productos");//productos del model.attribute("productos", listaProducto)
+        List<Producto> listaProducto = (List<Producto>) model.get("productos");
         
         document.setPageSize(PageSize.A4);
         document.open();   

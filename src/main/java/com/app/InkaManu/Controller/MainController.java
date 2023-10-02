@@ -1,5 +1,8 @@
 package com.app.InkaManu.Controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -8,8 +11,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.app.InkaManu.Model.Entity.Producto;
+import com.app.InkaManu.Model.Entity.Usuario;
+import com.app.InkaManu.Model.Repository.ProductoRepository;
+import com.app.InkaManu.Model.Service.ProductoService;
+import com.app.InkaManu.Model.Service.UsuarioService;
+import com.google.j2objc.annotations.AutoreleasePool;
+
 @Controller
 public class MainController {
+	
     
     @GetMapping("/")
     public String main(Model m) {
@@ -71,17 +82,28 @@ public class MainController {
 	DE TODOS LOS PRODUCTOS REGISTRADOS EN NUESTRA EMPRESA, DONDE 
 	PODRA BUSCAR, AGREGAR, EDITAR Y ELIMINAR LOS DATOS DE UN PRODUCTO
 	*/
+	
+	@Autowired
+	private ProductoService productoService;
 	@GetMapping({"/prueba27" })
 	public String prueba27(Model model) {		
-		return "listar_producto";
+	  List<Producto> listaProducto = productoService.getAllProducts();
+	  model.addAttribute("titulo","Lista de Productos");
+	  model.addAttribute("productos",listaProducto);
+	  return "listar_producto";
 	}
 
 	/* ESTA VISTA ES PARA QUE EL ADMINISTRADOR PUEDA VER LA LISTA
 	DE TODOS LOS CLIENTES REGISTRADOS EN NUESTRA EMPRESA, DONDE 
 	PODRA BUSCAR, AGREGAR, EDITAR Y ELIMINAR LOS DATOS DE UN CLIENTE
 	*/
+	@Autowired
+	private UsuarioService usuarioService;
 	@GetMapping({"/prueba28" })
 	public String prueba28(Model model) {		
+		List<Usuario> listaClientes = usuarioService.getAllUsers();
+		model.addAttribute("titulo","Lista de Clientes");
+	  	model.addAttribute("clientes",listaClientes);
 		return "listar_cliente";
 	}
 	/* ESTA VISTA ES PARA QUE EL ADMINISTRADOR PUEDA REGISTRAR 
